@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Pizza Order Form</title>
+	<meta charset="UTF-8">
+	<meta name="author" content="Boyang Bai">
+	<meta name="description" content="Order you pizza online!">
+</head>
+<body>
+	<h1>This is a pizza order form</h1>
+	<form id="pizzaOrder" method="GET">
+		<p>
+		Name:<br />
+		<input type="text" placeholder="Your Name Here" name="name" required="required">
+		</p>
+		<p>
+		Address:<br />
+		<input type="text" placeholder="### Street..." name="address" pattern="^\d+[ ][ A-Za-z0-9.,-]+$" required="required">
+		</p>
+		<p>
+		Phone number:<br />
+		<input type="text" placeholder="###-###-####" name="phone" pattern="^\d{3}-\d{3}-\d{4}$" required="required">
+		</p>
+		<p>
+		Pizza size:<br />
+		<input type="radio" name="size" value="L" required="required" />L
+		<input type="radio" name="size" value="XL" required="required"/>XL
+		<input type="radio" name="size" value="XXL" required="required"/>XXL
+		</p>
+		<p>
+		Toppings<br />
+		<input type="checkbox" name="topping" value="Mushroom" />Mushroom
+		<input type="checkbox" name="topping" value="Pepperoni" />Pepperoni
+		<input type="checkbox" name="topping" value="Sausage" />Sausage
+		<input type="checkbox" name="topping" value="GreenPepper" />Green Pepper
+		</p>
+
+		<input type="submit" value="Order!" onclick="return validateForm()">
+		<input type="reset" value="Clear">
+	</form>
+</body>
