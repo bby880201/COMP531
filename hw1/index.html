@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Ricebook</title>
+	<meta charset="UTF-8" />
+	<meta name="author" content="Boyang Bai" />
+	<meta name="index" content="Landing page of Ricebook" />
+</head>
+<body onload="getTime(document.getElementById('loadedTime'))">
+	<h1>Welcome to Ricebook, a facebook-like application for Rice students </h1>
+	<!-- <img src="http://cdn.rsvlts.com/wp-content/uploads/2015/12/20151208_thrillist_ned_002-2-1.jpg" width="500px" title="pizza"> -->
+	<form id="signUpForm" action="formProcessor.html" method="GET">
+		<p>
+		Account Name:&nbsp;&nbsp;
+		<input type="text" id="accountName" name="accountName" placeholder="Give an account name" required="required" />
+		</p>
+
+		<p>
+		Display Name(Optional):&nbsp;&nbsp;
+		<input type="text" id="displayName" name="displayName" placeholder="Your Preferred Name" />
+		</p>
+
+		<p>
+		Email Address:&nbsp;&nbsp;
+		<input type="email" id="emailAddress" name="emailAddress" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="xxx@yyy.zzz"  required="required" />
+		</p>
+
+		<p>
+		Phone Number:&nbsp;&nbsp;
+		<input type="text" id="phoneNumber" name="phoneNumber" placeholder="###-###-####" pattern="^\d{3}-\d{3}-\d{4}$" required="required" />
+		</p>
+
+		<p>
+		Date of Birth:&nbsp;&nbsp;
+		<input type="date" id="birthday" name="birthday" required="required" />
+		</p>
+
+		<p>
+		Zipcode:&nbsp;&nbsp;
+		<input type="text" id="zipcode" name="zipcode" placeholder="5-digits Zipcode" pattern="^\d{5}$" maxlength="5" required="required" />
+		</p>
+
+		<p>
+		Password:&nbsp;&nbsp;
+		<input type="password" id="password" name="password" size="25" required="required" />
+		</p>
+
+		<p>
+		Password Confirmation:&nbsp;&nbsp;
+		<input type="password" id="passwordConfirmation" name="passwordConfirmation" size="25" required="required" />
+		</p>
+
+		<input type="hidden" id="loadedTime" name="loadedTime" required="required" />
+
+		<input type="submit" value="Sign Up!" onclick="return validateForm()">
+		<input type="reset" value="Clear">
+	</form>
+</body>
+<script type="text/javascript">
+	function validateForm(form) {
+		if (!form) {
+			form = document.getElementById('signUpForm')
+		}
+		console.log(form)
+
+		// page loaded timestamp is required
+		if (!form.elements.namedItem('loadedTime').value) {
+			window.alert("Invalid timestamp, please reload page!")
+			return false
+		}
+
+		// account name can only be upper or lower case letters and numbers, but may not start with a number
+		var accountNamePattern = /^[a-zA-z][0-9a-zA-z]+$/g
+		if (!accountNamePattern.test(form.elements.namedItem('accountName').value)) {
+			window.alert("Account name can only be upper or lower case letters and numbers, but may not start with a number.")
+			return false
+		}
+
+		// password and confirmation should be exactly same
+		if (form.elements.namedItem('password').value !== form.elements.namedItem('passwordConfirmation').value) {
+			window.alert("Password and confirmation don't match!")
+			return false
+		}
+
+		// check if under 18
+		if (calculateAge(form.elements.namedItem('birthday').value) < 18) {
+			window.alert('You must be 18 or older to sign up!')
+			return false
+		}
+
+		return true
+	}
+
+	function calculateAge(birthday) {
+		var today = new Date();
+		var birthDate = new Date(birthday);
+		var age = today.getFullYear() - birthDate.getFullYear();
+		var m = today.getMonth() - birthDate.getMonth();
+		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+	    return age;
+    }
+
+	function getTime(element) {
+		element.value = Date.now()
+	}
+</script>
+</html>
