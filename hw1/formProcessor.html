@@ -4,9 +4,9 @@
 	<title>Form Processor</title>
 	<meta charset="UTF-8" />
 	<meta name="author" content="Boyang Bai" />
-	<meta name="formProcessor" content="Sign up form processor" />
+	<meta name="description" content="Sign up form processor" />
 </head>
-<body onload="getValueFromUrl()">
+<body onload="getParaFromUrl()">
 	<table id="paraTable" name="paraTable">
 		<tr>
 			<th>Key</th>
@@ -15,38 +15,36 @@
 	</table>
 </body>
 <script type="text/javascript">
-	function getValueFromUrl() {
-		var paraPairs = window.location.search
+        function getParaFromUrl() {
+        	var paraPairs = window.location.search
 
-        var search = /([^&=]+)=?([^&]*)/g
+                var search = /([^&=]+)=?([^&]*)/g
 
-        // lambda to replace white space
-        var decode = function (s) { return decodeURIComponent(s.replace(/\+/g , " ")); }
+                // lambda to replace white space
+                var decode = function (s) {return decodeURIComponent(s.replace(/\+/g, ' '));}
 
-        // get rid of ? symbol
-        var query = window.location.search.substring(1)
-        var table = document.getElementById("paraTable")
+                // get rid of ? symbol
+                var query = window.location.search.substring(1)
+                var table = document.getElementById('paraTable')
 
-        // find all matched key-value pair and append to table
-        while (match = search.exec(query)) {
-        	var row = table.insertRow(-1)
-        	var key = row.insertCell(-1)
-        	var value = row.insertCell(-1)
+                // find all matched key-value pair and append to table
+                while (match = search.exec(query)) {
+                	var row = table.insertRow(-1)
+                	var key = row.insertCell(-1)
+                	var value = row.insertCell(-1)
 
-        	var paraName = match[1]
-        	key.innerHTML = decode(paraName)
+                	var paraName = match[1]
+                	key.innerHTML = decode(paraName)
 
-        	if (paraName !== "loadedTime") {
-        		value.innerHTML = decode(match[2])
-        	}
-        	else {
-        		var timestamp = new Date(parseInt(decode(match[2])))
-        		value.innerHTML = timestamp.toLocaleDateString()
-        	}
-
-        }
-        console.log(document.getElementById("paraTable"))
-
+                	if (paraName !== 'loadedTime') {
+                		value.innerHTML = decode(match[2])
+                	}
+                	else {
+                		var timestamp = new Date(parseInt(decode(match[2])))
+                		value.innerHTML = timestamp.toLocaleDateString()
+                	}
+                }
+                console.log(document.getElementById('paraTable'))
 	}
 </script>
 </html>
