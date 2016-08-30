@@ -5,6 +5,15 @@
 	<meta charset="UTF-8" />
 	<meta name="author" content="Boyang Bai" />
 	<meta name="description" content="Landing page of Ricebook" />
+	<style type="text/css">
+	input[type="submit"], input[type="reset"] {
+		font-weight: bold;
+		padding: 4px 8px;
+		border:1px solid #000;
+		background: #3b5998;
+		color:#fff;
+	}
+	</style>
 </head>
 <body onload="getTime(document.getElementById('loadedTime'))">
 	<h1>Welcome to Ricebook, a facebook-like application for Rice students </h1>
@@ -92,14 +101,14 @@
 	}
 
 	function calculateAge(birthday) {
-		var today = new Date();
-		var birthDate = new Date(birthday);
-		var age = today.getFullYear() - birthDate.getFullYear();
-		var m = today.getMonth() - birthDate.getMonth();
+		var today = new Date()
+		var birthDate = new Date(birthday)
+		var age = today.getFullYear() - birthDate.getFullYear()
+		var m = today.getMonth() - birthDate.getMonth()
 		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-			age--;
+			age--
 		}
-	    return age;
+	    return age
     }
 
 	function getTime(element) {
