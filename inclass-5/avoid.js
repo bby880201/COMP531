@@ -7,7 +7,7 @@ window.onload = function () {
 	play.onclick = function () {
 		if (!isWon) {
 			play.className = 'afterclick'
-			play.innerHTML = 'Paly Again'
+			play.innerHTML = 'Play Again'
 			play.removeEventListener('mouseover', mouseoverHandler)
 			document.getElementById('msg').style.display = "block";
 			isWon = true
