@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8" />
+	<title>Avoid the Mouse</title>
+	<meta name="author" content="Boyang Bai" />
+	<meta name="description" content="A game that you need to chase and click the button, cheating by pressing SHIFT" />
+
+	<style>
+	.button {
+	border: 2px solid #a1a1a1;
+	background: #dddddd;
+	border-radius: 8px;
+	width: 120px;
+	height: 40px;
+	}
+	.afterclick {
+	border: 2px solid red;
+	background: #90EE90;
+	border-radius: 8px;
+	width: 120px;
+	height: 40px;
+	}
+	.msgbox {
+	border: 5px solid red;
+	background: #90EE90;
+	border-radius: 8px;
+	width: 200px;
+	height: 40px;
+	text-align: center;	
+	}
+	</style>
+	
+	<script type="text/javascript" src="avoid.js"></script>
+</head>
+
+<body>
+	<button type="button" id="playbtn" class="button">Click Me</button>
+	<div id="msg" class="msgbox">
+		Congratulations!<br/>You won!
+	</div>
+</body>
