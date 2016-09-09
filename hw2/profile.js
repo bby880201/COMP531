@@ -1,5 +1,7 @@
+'use strict'
+
 window.onload = function windowload(argument) {
-	var btn = document.getElementById('updatebtn')
+	// a dict to map each field with its validation function
 	var checkFunDict = {
 		'name': checkName,
 		'email': checkEmail,
@@ -8,13 +10,16 @@ window.onload = function windowload(argument) {
 		'pwd': checkPwd
 	}
 
+	var btn = document.getElementById('updatebtn')
 	btn.onclick = function validate() {
 		var fieldList = document.getElementsByName('update')
 		var applyUpdate = false
+
+		// iterate all update field twice
+		// first time check if all updates are valid 
 		Array.prototype.every.call(fieldList, function(element) {
 			var input = element.getElementsByTagName('input')[0]
 			if (input.value && input.name !== 'pwdcnf') {
-				console.log(input.value)
 				var checkFun = checkFunDict[input.name]
 				applyUpdate = checkFun(input.value)
 				return applyUpdate
@@ -23,6 +28,7 @@ window.onload = function windowload(argument) {
 			}
 		})
 
+		// iterate second time to apply new values
 		if (applyUpdate) {
 			var msg = "Update succeed!\n"
 			fieldList.forEach(function (element) {
@@ -41,6 +47,7 @@ window.onload = function windowload(argument) {
 	}
 }
 
+// validation functions for each field
 function checkName(name) {
 	var pattern = /^[a-zA-z][0-9a-zA-z]+$/g
 	if (!pattern.test(name)) {
@@ -79,7 +86,7 @@ function checkZip(zip) {
 
 function checkPwd(pwd) {
 	var pwdcnf = document.getElementsByName('pwdcnf')[0].value
-	if (input.value !== pwdcnf) {
+	if (pwd !== pwdcnf) {
 		window.alert("Your password and confirmation don't match.")
 		return false
 	}

@@ -1,7 +1,7 @@
 'use strict'
 
 window.onload = function windowload() {
-	// for each picture cell, cache all avaliable picture sources for switch
+	// for each picture cell, cache all avaliable picture to memory
 	var imageCache = {
 		"arcaneGiant" : 
 		["https://hydra-media.cursecdn.com/hearthstone.gamepedia.com/b/bf/Arcane_Giant%2842049%29.png", 
@@ -27,34 +27,39 @@ window.onload = function windowload() {
 		"https://hydra-media.cursecdn.com/hearthstone.gamepedia.com/a/a8/Sir_Finley_Mrrgglton%2827215%29.png",
 		]
 	}
-	var intervalCache = {}
+	var keys = Object.keys(imageCache)
+	keys.forEach(function(key) {
+		imageCache[key] = imageCache[key].map(function(src) {
+			var img = new Image()
+			img.src = src
+			return img
+		})
+	})
 
 	// get all cells with picture, and iterate though them to set intervals
 	var cardpics = document.getElementsByName('cardpic')
-	var setIntervalForEach = function (cell) {
+	cardpics.forEach(function (cell) {
 		setIntervalForPic(cell, imageCache)
-	}
-
-	cardpics.forEach(setIntervalForEach)
+	})
 }
 
-function intervalFunctionFac(img, srcList) {
-	// generate a function for setInterval that iterate through all image src to change the card pic
+// generate a function for setInterval that iterate through all image src to change the card pic
+function intervalFunctionFac(img, imgList) {
 	// random pick one picture source at beginning
-	var i = makeRandom(-1, srcList.length-2);
+	var i = makeRandom(-1, imgList.length-2);
 	return function () {
 		i++;
-		if (i >= srcList.length){
+		if (i >= imgList.length){
 			i = 0
 		}
-		return img.src = srcList[i]
+		return img.src = imgList[i].src
 	}
 }
 
 function setIntervalForPic(tablecell, imgDict) {
 	var img = tablecell.getElementsByTagName('img')[0]
-	var srcList = imgDict[img.name]
-	var itv = setInterval(intervalFunctionFac(img, srcList), makeRandom(1000, 5000))
+	var imgList = imgDict[img.name]
+	var itv = setInterval(intervalFunctionFac(img, imgList), makeRandom(1000, 5000))
 	var btn = tablecell.getElementsByTagName('button')[0]
 
 	btn.onclick = function () {
