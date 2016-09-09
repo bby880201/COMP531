@@ -1,0 +1,40 @@
+.table {
+	background-color: #E6FFCC;
+	color: #000000;
+	width: 100%;
+	margin: 1em 0;
+	border: 5px solid rgba(34,36,38,.15);
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.btn:hover {
+	background-color: #AFAFAF;
+}
+
+div#header {
+	height: 30px;
+}
+
+div.row {
+	margin: 1em;
+}
+
+div.card {
+	width: 286px;
+	height: 395px;
+}
+
+td.cardpic {
+	width: 300px;
+}
+
+h1.cardname {
+	text-align: center;
+	font-size:350%;
+}
+
+td:hover {
+	background-color: #ccffff;
+	color: #000000;
+}
