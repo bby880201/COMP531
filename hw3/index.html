@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Ricebook - Log In or Sign Up</title>
+	<meta charset="UTF-8" />
+	<meta name="author" content="Boyang Bai" />
+	<meta name="description" content="Landing page of Ricebook" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>')</script>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script src="index.js"></script>
+</head>
+
+
+
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Ricebook</a>
+		</div>
+	</div>		
+</nav>
+
+<div class="container text-center">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">New to Here?</div>
+				<div class="panel-body">
+					<form id="signUpForm" action="main.html" method="GET">
+						<p>
+						Enter an account Name:<br />
+						<input type="text" id="accountName" name="accountName" size="25" required="required" />
+						</p>
+
+						<p>
+						Choose a display name (Optional):<br />
+						<input type="text" id="displayName" name="displayName" size="25" />
+						</p>
+
+						<p>
+						Email address:<br />
+						<input type="email" id="emailAddress" name="emailAddress" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" size="25" placeholder="xxx@yyy.zzz"  required="required" />
+						</p>
+
+						<p>
+						Phone number:<br />
+						<input type="text" id="phoneNumber" name="phoneNumber" placeholder="###-###-####" maxlength="12" size="15" pattern="^\d{3}-\d{3}-\d{4}$" required="required" />
+						</p>
+
+						<p>
+						Birthday:<br />
+						<input type="date" id="birthday" name="birthday" required="required" />
+						</p>
+
+						<p>
+						Zipcode:&nbsp;&nbsp;
+						<input type="text" id="zipcode" name="zipcode" pattern="^\d{5}$" size="5" maxlength="5" required="required" />
+						</p>
+
+						<p>
+						Create a password:&nbsp;&nbsp;
+						<input type="password" id="password" name="password" size="10" required="required" />
+						</p>
+
+						<p>
+						Confirm your password:&nbsp;&nbsp;
+						<input type="password" id="pwdConfirm" name="pwdConfirm" size="10" required="required" />
+						</p>
+
+						<input type="hidden" id="loadedTime" name="loadedTime" required="required" />
+
+						<input type="submit" value="Sign Up!" onclick="return validateForm()" />
+						<input type="reset" value="Clear" />
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">Already had an account?</div>
+				<div class="panel-body">
+					<div class="col-sm-5 center-block">
+						<div class="form-group">
+							<label for="usr" class="pull-left">Name:</label>
+							<input type="text" class="form-control" id="usr">
+						</div>
+					</div>
+					<div class="col-sm-5 center-block">
+						<div class="form-group">
+							<label for="pwd" class="pull-left">Password:</label>
+							<input type="password" class="form-control" id="pwd">
+						</div>
+					</div>
+					<div class="col-sm-2 center-block logIn">
+						<div class="form-group">
+							<button class="btn btn-primary btn-sm logIn">Log In</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+
+<footer class="container-fluid text-center">
+	<p>Boyang Bai © 2016</p>
+	<p><a href="mailto:bb26@rice.edu">bb26@rice.edu</p>
+</footer>
+</body>
+</html>
+

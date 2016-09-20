@@ -1,0 +1,78 @@
+body {
+	padding-top: 70px;
+	background-color: #fff;
+}
+nav.navbar {
+	border-radius: 0px;
+	display: block;
+}
+div {
+	display: block;
+}
+div.alert {
+	display: none;
+}
+div.uploadImg {
+	padding-right: inherit;
+	padding-left: inherit;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+div.friendAvatar {
+	width: 25%;
+	float: left;
+}
+div.friendName {
+	width: 75%;
+	padding-left: 10px;
+	float: right;
+	word-wrap: break-word;
+}
+div.friendList {
+	padding-bottom: 0px;
+}
+div.articleBtns {
+	margin-bottom: 30px;
+}
+div.contentAvatar {
+	border-color: #337ab7;
+	background-color: #fff;
+}
+div.contentArtical {
+	border-color: #337ab7;
+	background-color: #fff;
+}
+div.logIn {
+	padding-top: 25px;
+}
+button.btn {
+	white-space: normal !important;
+	overflow: hidden; 
+}
+button.logIn {
+	height: 34px;
+	width: 100%;
+}
+a.friendList {
+	font-size: 16px;
+	color: #337ab7;
+	text-decoration: none;
+}
+a.displayName {
+	color: #fff;
+	text-decoration: none;
+}
+input {
+	line-height: normal;
+}
+textarea.newpost { 
+	resize:none; 
+}
+img.friendAvatar {
+	margin-bottom: 2px;
+}
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}

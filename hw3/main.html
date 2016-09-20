@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+	<title>Ricebook</title>
+	<meta charset="UTF-8" />
+	<meta name="author" content="Boyang Bai" />
+	<meta name="description" content="Your Ricebook page" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>')</script>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script src="main.js"></script>
+</head>
+
+<body>	
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">Ricebook</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+			</ul>
+			
+			<ul class="nav navbar-nav">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>My Profile</a></li>
+			</ul>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Log Out</a></li>
+			</ul>
+			<form class="navbar-form navbar-right" role="search">
+				<div class="form-group input-group">
+					<input type="text" class="form-control" placeholder="Search.." />
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
+			</form>
+		</div>
+	</div>		
+</nav>
+
+<div class="container text-center">
+	<div class="row">
+		<div class="col-sm-3">
+			<div class="panel panel-primary">
+				<div class="panel-heading"><a class="displayName" href="#">Boyang Bai</a></div>
+				<div class="panel-body">
+					<p><a href="#">
+					<img src="avatars/gundam00.jpg" class="img-circle" height="80" width="80" alt="Avatar" />
+					</a></p>
+					<p contenteditable="true">I'm Building Facebook Jr.</p>
+				</div>	
+				<div class="alert alert-success fade in">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<p><strong id="alertHeader"></strong></p>
+					<p id="alertText"></p>
+				</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<textarea class="form-control newpost" placeholder="Post someting to your friends!" rows="5"></textarea>
+					</div>
+					<div class="row uploadImg">
+						<input type="file" id="fileinput" />
+					</div>
+					<div class=" pull-right">
+						<button type="button" class="btn btn-default btn-sm">Post</button>
+						<button type="button" class="btn btn-default btn-sm" id="cancelPost">Cancel</button>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading"><a class="displayName" href="#">Friends</a></div>
+				<div class="panel-body friendList">
+					<div class="friendAvatar">
+						<a href="#">
+							<img src="avatars/stark_sigil.png" class="img-circle img-responsive center-block friendAvatar" height="55" width="55" alt="Avatar">
+						</a>
+						<button type="button" class="btn btn-default btn-xs btn-block">Unfollow</button>
+					</div>
+					<div class="friendName text-left">
+						<p><a href="#" class="friendList">Eddard Stark</a></p>
+						<p>Winter is comming</p>
+					</div>
+				</div>
+				<div class="panel-body friendList">
+					<div class="friendAvatar">
+						<a href="#">
+							<img src="avatars/unknown.png" class="img-circle img-responsive center-block friendAvatar" height="55" width="55" alt="Avatar">
+						</a>
+						<button type="button" class="btn btn-default btn-xs btn-block">Unfollow</button>
+					</div>
+					<div class="friendName text-left">
+						<p><a href="#" class="friendList">Unknown</a></p>
+						I had to mention something about someone to someone about how I forgot something
+					</div>
+				</div>
+				<div class="panel-body friendList">
+					<div class="friendAvatar">
+						<a href="#">
+							<img src="avatars/kerrigan.png" class="img-circle img-responsive center-block friendAvatar" height="55" width="55" alt="Avatar">
+						</a>
+						<button type="button" class="btn btn-default btn-xs btn-block">Unfollow</button>
+					</div>
+					<div class="friendName text-left">
+						<p><a href="#" class="friendList">Sarah Kerrigan</a></p>
+						 Vengeance shall be mine. For I am the Queen of Blades.
+					</div>
+				</div>
+				<div class="panel-body friendList">
+					<div class="friendAvatar">
+						<a href="#">
+							<img src="avatars/sylvanas.png" class="img-circle img-responsive center-block friendAvatar" height="55" width="55" alt="Avatar">
+						</a>
+						<button type="button" class="btn btn-default btn-xs btn-block">Unfollow</button>
+					</div>
+					<div class="friendName text-left">
+						<p><a href="#" class="friendList">Sylvanas Windrunner</a></p>
+						The Banshee Queen has plans for you!
+					</div>
+				</div>
+				<div class="panel-body">
+					<input type="text" name="addFriend" placeholder="Add your friend" />
+					<button type="button" class="btn btn-default btn-xs">Add</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/sylvanas.png" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Sylvanas Windrunner</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p><img src="http://img12.deviantart.net/f85f/i/2015/122/e/8/warcraft___sylvanas_windrunner_by_arcan_anzas-d8ruzai.jpg" class="img-responsive center-block" alt="Avatar"></p>
+						<p>Sylvanas Windrunner (the Dark Lady, Queen of the Forsaken) is the former Ranger-General of Silvermoon and the leader of the Forsaken faction of undead, and Icon Legion 18x18 Warchief of the Horde after the Battle on the Broken Shore. She is the middle sister of Alleria and Vereesa Windrunner.</p>
+						<p>When Arthas Menethil and the Scourge came to Quel'Thalas for the Sunwell, Sylvanas was there to defend her homeland. After fighting and losing at every turn to his hands, Arthas killed her but severed her soul from her body as an act of revenge. She unwillingly served and aided him in the destruction of Silvermoon.</p>
+						<p>During the time when the Lich King was losing grasp on his undead minions, Sylvanas gained her free will and plotted against Arthas in Lordaeron with the help of the Nathrezim. After her assassination attempt failed, she turned her attention to claiming Lordaeron for herself. She bent the dreadlord, Varimathras, to her will and, with the help of the human remnants led by lord Garithos, killed Balnazzar and Detheroc. With the death of the dreadlords and Garithos, together with the disbanding of the human remnants, Sylvanas was able to claim Lordaeron and made her home under the former Capital City, which she named "The Undercity."</p>
+						<p>She is voiced by Piera Coppola.</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/kerrigan.png" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Sarah Kerrigan</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p><img src="http://img04.deviantart.net/cbbe/i/2013/073/2/a/sarah_kerrigan___hots_4_by_erenor-d5y012i.jpg" class="img-responsive center-block" alt="Avatar"></p>
+						<p>Sarah Louise Kerrigan was a psychic terran female. She began her career as a Confederate ghost and later became the second-in-command of the Sons of Korhal. Following Arcturus Mengsk's betrayal, she was captured and infested by the Zerg Swarm, ultimately becoming the self-proclaimed Queen of Blades (a.k.a. the Zerg Queen) and leader of the Swarm.</p>
+						<p>At the Dominion Ghost Academy, ghosts in training are told the Confederacy allowed Kerrigan to "defect" to the zerg.Non-control zerg strains referred to her as "the Kerrigan."</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/sylvanas.png" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Sylvanas Windrunner</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p>Sylvanas has additional abilities to those she uses during her World of Warcraft encounter.</p>
+						<p>Sylvanas is skilled at archery, an art she mastered as a high elf. To this day the bow remains Sylvanas' weapon of choice.</p>
+						<p>The Banshee Queen is aptly named. Her screams have the power to silence and weaken her enemies, or bolster the power of her allies.</p>
+						<p>Sylvanas is adept at demon magic — having the ability to drain life, create skeletons, and use mind control.</p>
+						<p>Although Sylvanas has reclaimed her undead high elven body, she still retains the ability to shift in and out of her incorporeal banshee form at will.</p>
+						<p>Through her pact with the val'kyr, Sylvanas has power over life and death. At the time of the Cataclysm events in Silverpine Forest, she could only raise humans into undeath, but her powers could always grow down the line. During the Siege of Orgrimmar, Sylvanas offered to raise Lor'themar's blood elf troops. During Garrosh's trial in War Crimes, she planned to raise Vereesa as a Forsaken.</p>
+						<p>Sylvanas can telepathically communicate by making her voice "invade" the thoughts of another person.</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/stark_sigil.png"" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Eddard Stark</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p><img src="http://vignette4.wikia.nocookie.net/gameofthrones/images/5/5c/Eddard_1x01.jpg" class="img-responsive center-block" height="200" width="550" alt="Avatar"></p>
+						<p>Lord Eddard Stark, also known as Ned Stark, is a major character in the first season. He is played by starring cast member Sean Bean, and debuts in the series premiere. He reappears in flashbacks during the sixth season, played by Sebastian Croft and Robert Aramayo.</p>
+						<p>Eddard is the head of House Stark, the Lord of Winterfell, Lord Paramount and Warden of the North, and later Hand of the King to King Robert I Baratheon. He is the older brother of Benjen, Lyanna and the younger brother of Brandon Stark. He is father of Robb, Sansa, Arya, Bran and Rickon by his wife, Catelyn Tully, and uncle of Jon Snow, who he raised as his bastard son. He is a dedicated husband and father, a loyal friend and an honorable lord.</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/kerrigan.png" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Sarah Kerrigan</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p><img src="http://vignette3.wikia.nocookie.net/starcraft/images/9/9e/SarahKerrigan_SC2_Art1.jpg" class="img-responsive center-block" alt="Avatar"></p>
+						<p>Kerrigan first appears in StarCraft as a twenty-six-year-old female Terran Ghost, a psychic trained both physically and mentally as an expert espionage agent and assassin. Initially the second-in-command of Sons of Korhal, a revolutionary movement against the oppressive Confederacy of Man, she is captured by the insectoid Zerg and infested, turning her into a human/Zerg hybrid completely under the control of the Zerg Overmind. She becomes one of the Zerg's most powerful agents, but during the Brood Wars, she replaces the Overmind following its destruction at the end of the great war, and gains control of the Zerg to seek dominance over the galaxy. Kerrigan's life before her infestation is further explored in the Starcraft novels Uprising and Liberty's Crusade, while Queen of Blades elaborates on her infested character.</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/stark_sigil.png"" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Eddard Stark</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p>King Jon Snow is a major character in the first, second, third, fourth, fifth, sixth, and seventh seasons. He is played by starring cast member Kit Harington, and debuts in the series premiere.</p>
+						<p>Though presented as the bastard son of Lord Eddard Stark, Jon is the son of Lady Lyanna Stark, Eddard's sister, with Rhaegar Targaryen. From infancy, Jon is raised by Eddard as his own alongside his lawful children at Winterfell and Jon's true parentage is kept secret. In order to escape his bastard status, Jon joins the Night's Watch and is chosen as Lord Commander Jeor Mormont's personal steward, and wields the House Mormont ancestral Valyrian steel sword, Longclaw, a gift from Mormont, who came to see Jon as a surrogate son. While on a Great Ranging beyond the Wall, Jon infiltrates Mance Rayder's wildling army and gains knowledge on their plans, enabling him to successfully lead the defense of Castle Black in the ensuing battle. In the aftermath, Jon is elected the new Lord Commander of the Night's Watch and pursues an alliance with the wildlings in order to keep them from falling to the coming army of White Walkers, straining his relationship with his fellow brothers, especially after a massacre that claims many brothers' lives.</p>
+						<p>Jon is ultimately killed in a mutiny, but revived shortly afterwards by Melisandre. Freed from his Night's Watch vows, Jon executes the mutineers and joins his cousin, Sansa Stark, in building an army to retake Winterfell from House Bolton. Securing help from several Northern Houses and House Arryn, Jon successfully retakes the castle from Ramsay Bolton, restoring House Stark's dominion over the North, and is declared the new King in the North by the Northern Lords.</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/stark_sigil.png"" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Eddard Stark</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p>Princess Arya Stark is a major character in the first, second, third, fourth, fifth, sixth and seventh seasons. She is played by starring cast member Maisie Williams, and debuts in the series premiere. Arya is the third child and second daughter of Lord Eddard Stark and his wife, Lady Catelyn Stark. She is later trained as a Faceless Man at the House of Black and White in Braavos.</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="well contentAvatar">
+						<p><a href="#">
+							<img src="avatars/sylvanas.png" class="img-rounded" height="55" width="55" alt="Avatar">
+						</a></p>
+						<p><a href="#" class="friendList">Sylvanas Windrunner</a></p>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="well text-left contentArtical">
+						<p>The Undercity is the capital city of the Forsaken undead of the Horde. It is located in Tirisfal Glades, at the northern edge of the Eastern Kingdoms. Far beneath the ruined capital city of Lordaeron, the royal crypts have been turned into a bastion of evil and undeath. Originally intended by Prince Arthas to be the Scourge's seat of power, the budding "Undercity" was abandoned when Arthas was recalled to aid the Lich King in distant Northrend. In Arthas's absence, the Dark Lady, Sylvanas Windrunner, led the rebel Forsaken to the Undercity, and claimed it for her own. Since taking up residence, the Forsaken have worked to complete the Undercity's construction by dredging the twisted maze of catacombs, tombs, and dungeons that Arthas began.</p>
+						<div class="articleBtns">
+							<div class="pull-right">
+								<button type="button" class="btn btn-default btn-sm">
+									<span class="glyphicon glyphicon-thumbs-up"></span> Like
+								</button>
+								<button type="button" class="btn btn-default btn-sm">Comment</button>
+								<button type="button" class="btn btn-default btn-sm">Edit</button>
+							</div>
+						</div>
+					</div >
+				</div>
+			</div>
+		</div>
+	</div>			
+</div>
+
+<footer class="container-fluid text-center">
+	<p>Boyang Bai © 2016</p>
+	<p><a href="mailto:bb26@rice.edu">bb26@rice.edu</p>
+</footer>
+
+</body>
+</html>
+
