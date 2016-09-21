@@ -27,7 +27,7 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="mail.html">Home</a></li>
+				<li class="active"><a href="main.html">Home</a></li>
 			</ul>
 			
 			<ul class="nav navbar-nav">
@@ -57,33 +57,34 @@
 				<div class="panel-heading">Your profile</div>
 				<div class="panel-body">
 					<p><img src="avatars/gundam00.jpg" class="img-circle" height="80" width="80" alt="Avatar" /></p>
+					<input class='center-block profileUpload' type="file" id="fileinput" />
 				</div>
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table class="table table-hover">
 							<tr>
 								<td class="profileKey text-right">Status</td>
-								<td class="profileValue text-left">I'm Building Facebook Jr.</td>
+								<td class="profileValue text-left" name="status">I'm Building Facebook Jr.</td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Name</td>
-								<td class="profileValue text-left">Boyang Bai</td>
+								<td class="profileValue text-left" name="usrname">Boyang Bai</td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Email address</td>
-								<td class="profileValue text-left">abcd@efg.hij</td>
+								<td class="profileValue text-left" name="email">abcd@efg.hij</td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Phone number</td>
-								<td class="profileValue text-left">666-666-6666</td>
+								<td class="profileValue text-left" name="phone">666-666-6666</td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Birthday</td>
-								<td class="profileValue text-left">12/11/1988</td>
+								<td class="profileValue text-left" name="birth">1988-12-08</td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Zipcode</td>
-								<td class="profileValue text-left">12345</td>
+								<td class="profileValue text-left" name="zip">12345</td>
 							</tr>
 						</table>
 					</div>
@@ -95,30 +96,38 @@
 				<div class="panel-heading">Update your profile</div>
 				<div class="panel-body">
 					<div class="table-responsive">
-						<table class="table table-hover">
+						<table class="table table-hover" id="update">
 							<tr>
 								<td class="profileKey text-right">Status</td>
-								<td class="profileValue text-left">I'm Building Facebook Jr.</td>
+								<td class="text-left"><input type="text" name="status" /></td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Name</td>
-								<td class="profileValue text-left">Boyang Bai</td>
+								<td class="text-left"><input type="text" name="usrname" /></td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Email address</td>
-								<td class="profileValue text-left">abcd@efg.hij</td>
+								<td class="text-left"><input type="email" name="email" placeholder="xxx@yyy.zzz" /></td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Phone number</td>
-								<td class="profileValue text-left">666-666-6666</td>
-							</tr>
-							<tr>
-								<td class="profileKey text-right">Birthday</td>
-								<td class="profileValue text-left">12/11/1988</td>
+								<td class="text-left"><input type="text" name="phone" placeholder="###-###-####" maxlength="15" /></td>
 							</tr>
 							<tr>
 								<td class="profileKey text-right">Zipcode</td>
-								<td class="profileValue text-left">12345</td>
+								<td class="text-left"><input type="text" name="zip" maxlength="5" /></td>
+							</tr>
+							<tr>
+								<td class="profileKey text-right">Password</td>
+								<td class="text-left"><input type="password" name="pwd" /></td>
+							</tr>
+							<tr>
+								<td class="profileKey text-right">Confirm password</td>
+								<td class="text-left"><input type="password" name="pwdcnf" /></td>
+							</tr>
+							<tr>
+								<td><button class="pull-right btn btn-primary btn-sm btn-responsive" id="updatebtn">Update</button></td>
+								<td><button class="pull-left btn btn-primary btn-sm btn-responsive" id="clear">Clear</button></td>
 							</tr>
 						</table>
 					</div>

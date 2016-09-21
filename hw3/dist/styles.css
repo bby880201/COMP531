@@ -66,6 +66,9 @@ a.displayName {
 input {
 	line-height: normal;
 }
+input.profileUpload {
+	padding-top: 10px;
+}
 textarea.newpost { 
 	resize:none; 
 }
@@ -80,7 +83,9 @@ footer {
 td.profileKey {
 	color: #337ab7;
 	font-weight: bold;
+	width: 40%
 }
 td.profileValue {
 	font-weight: bold;
+	width: 60%
 }
