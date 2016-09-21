@@ -67,7 +67,7 @@ function setIntervalForPic(tablecell, imgDict) {
 			clearInterval(itv)
 			btn.innerHTML = 'Start'
 		} else {
-			itv = setInterval(intervalFunctionFac(img, srcList), makeRandom(1000, 5000))
+			itv = setInterval(intervalFunctionFac(img, imgList), makeRandom(1000, 5000))
 			btn.innerHTML = 'Stop'	
 		}
 	}

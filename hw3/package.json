@@ -1,0 +1,19 @@
+{
+  "name": "Ricebook",
+  "version": "1.0.0",
+  "description": "Ricebook",
+  "main": "./src/index.js",
+  "scripts": {
+    "deploy": "surge -p dist",
+    "start": "cd dist && (python -m SimpleHTTPServer 8080 || python -m http.server 8080)"
+  },
+  "author": "Boyang Bai",
+  "license": "MIT",
+  "devDependencies": {
+    "surge": "^0.18.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.1"
+  }
+}

@@ -52,6 +52,7 @@ button.btn {
 button.logIn {
 	height: 34px;
 	width: 100%;
+	min-width: 60px;
 }
 a.friendList {
 	font-size: 16px;
@@ -75,4 +76,11 @@ footer {
 	background-color: #555;
 	color: white;
 	padding: 15px;
+}
+td.profileKey {
+	color: #337ab7;
+	font-weight: bold;
+}
+td.profileValue {
+	font-weight: bold;
 }
