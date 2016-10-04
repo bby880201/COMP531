@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Catch'em All</title>
+	<meta charset="UTF-8" />
+	<meta name="author" content="Boyang Bai" />
+	<meta name="description" content="Catch as many rats as you can!" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery.min.js">\x3C/script>')</script>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<script src="index.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 ">
+			<div class="playground"><canvas width="600" height="600"></canvas></div>
+			<div class="countDown" id="cd"></div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel panel-primary dashboard">
+				<div class="panel-group panel-primary" id="instruction">
+					<div class="score panel-heading text-center">
+						<a data-toggle="collapse" data-parent="#instruction" href="#insCont">Click For Help</a>
+					</div>
+					<div id="insCont" class="panel-collapse collapse">
+						<div class="panel-body">
+						<h4>Click to catch rats in your kitchen, the quicker you catch them, the more score you will earn, just do it!</h4>
+						<p><img src="img/rat.png" /></p>
+						<p>Don't let any rat run away!<br/>Be careful, if the number of rats you missed is more than the level, you'll lose!</p>
+						<p><img src="img/rat2.png" /></p>
+						<p>Occasionally, Jerry will come out looking for cheese, don't let him go since catching him will give you double socre!</p>
+						<p><img src="img/cat.png" /></p>
+						<p>If Tom coming, don't hit him otherwise you'll lose the game!</p>
+						<p>The level will be up if enough rats are caught. Along with level up, their running speed also increase.</p>
+
+						<h4>Ok, catch'em All!</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-primary dashboard">
+				<div class="score panel-heading text-center">Score: <span id="score"></span></div>
+				<div class="panel-body">
+					<div class="moreRats text-center"><span class="nums" id="left"></span> more rats to level up</div>
+					<div class="stats">Level: <span class="nums" id="level"></span></div>
+					<div class="stats">Rats Caught: <span class="nums" id="caught"></span></div>
+					<div class="stats">Rats Missed: <span class="nums" id="missed"></span></div>
+					<div class="stats">Reaction Time: <span class="nums" id="reaction">-</span></div>
+					<button class="btn btn-lg btn-primary btn-block playBtn" id="play">Play</button>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div>
+</body>

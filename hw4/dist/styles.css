@@ -1,0 +1,52 @@
+body {
+	background-color: #e9ebee;
+}
+.panel-group {
+	margin-bottom: 0px;
+}
+a {
+	color: white;
+}
+a:hover,a:focus,a:active {
+	color: white;
+}
+div.playground {
+	margin: 30px;
+	width: 610px;
+	height: 610px;
+	border: thick solid black;
+	border-color: black;
+	background-image: url("img/background.jpg");
+}
+div.countDown {
+	display: none;
+	color: red;
+	font-size: 200px;
+	position: absolute;
+	top: 150px;
+	left: 275px;
+}
+div.dashboard {
+	margin-top: 30px;
+}
+div.score {
+	font-size: 20px;
+}
+div.moreRats {
+	font-size: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+div.stats {
+	font-size: 15px;
+	margin: 10px;
+}
+span.nums {
+	font-size: 20px;
+	color: red;
+}
+button.playBtn {
+	font-size: 20px;
+	margin-top: 40px;
+	margin-bottom: 20px;	
+}
