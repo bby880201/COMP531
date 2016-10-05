@@ -15,13 +15,13 @@
 	imgs[2].src = 'img/cat.png'
 
 	const playBtn = document.getElementById('play')
-	const cd = document.getElementById('cd')
+	const msg = document.getElementById('msg')
 	const canvas = document.querySelector("canvas")
 
 	const stats = {score:document.getElementById('score'), left:document.getElementById('left'),
 	missed:document.getElementById('missed'),caught:document.getElementById('caught'),
 	rtime:document.getElementById('reaction'),level:document.getElementById('level')}
-	const game = newGame(canvas, rotatedImgs, stats)
+	const game = newGame(canvas, rotatedImgs, stats, msg)
 
 	playBtn.onclick = () => {
 		playBtn.innerHTML = 'Try Again'
@@ -33,7 +33,7 @@
 	canvas.addEventListener('click', game.catchThem, false)
 }
 
-const newGame = function (canvas, imgs, statDivs) {
+const newGame = function (canvas, imgs, statDivs, msg) {
 	const c = canvas.getContext("2d");
 	const borders = {l:0, r: canvas.width, t:0, b: canvas.height}
 	const range = {l:{x:[0,0],y:[150,canvas.height-150], img:0}, r:{x:[canvas.width,canvas.width],y:[150,canvas.height-150], img:2},
@@ -53,9 +53,9 @@ const newGame = function (canvas, imgs, statDivs) {
 		cancelAnimationFrame(frameId)
 		c.clearRect(0, 0, canvas.width, canvas.height);
 		itvs = []
-		rats = [spawn('rat')]
+		rats = []
 		cats = []
-		cd.style.display = 'none'
+		msg.parentElement.style.display = 'none'
 		if (cleanStats) {
 			stats = {score:0, left:10, missed:0, caught:0, rtime:0,level:1}
 		}
@@ -64,12 +64,12 @@ const newGame = function (canvas, imgs, statDivs) {
 
 	// a 3s count down that allow player to prepare before game starting
 	const start = function () {
-		cd.innerHTML = '1'
-		cd.style.display = 'block'
+		msg.innerHTML = '1'
+		msg.parentElement.style.display = 'block'
 		var cdItv = setInterval(()=>{
-			cd.innerHTML--
-			if (cd.innerHTML<0){
-				cd.style.display = 'none'
+			msg.innerHTML--
+			if (msg.innerHTML<0){
+				msg.parentElement.style.display = 'none'
 				clearInterval(cdItv)
 				startGame()
 			}
@@ -139,11 +139,9 @@ const newGame = function (canvas, imgs, statDivs) {
 			if (r.x<borders.l-r.img.width || r.x>borders.r 
 				|| r.y<borders.t-r.img.height || r.y>borders.b) {
 				stats.missed+=1
+				stats.score-=r.time
 				r.out = true
 				update()
-				if (stats.missed>stats.level) {
-					gameOver(false)
-				}
 			}
 		})
 	}
@@ -176,13 +174,14 @@ const newGame = function (canvas, imgs, statDivs) {
 		}
 		cats.forEach((e)=>{
 			if (checkHit(e)) {
-				gameOver(false)
+				stats.score-=10000
+				update()
 			}
 		})
 		rats.forEach(function(e) {
 			if (checkHit(e)) {
 				e.out = true
-				var s = Math.floor(10000/e.time) * 100
+				var s = Math.floor(100000/e.time) * 100
 				e.bonus?stats.score+=s*2:stats.score+=s
 				stats.rtime+=e.time
 				stats.caught+=1
@@ -200,6 +199,12 @@ const newGame = function (canvas, imgs, statDivs) {
 		Object.keys(stats).forEach((s)=>{
 			statDivs[s].innerHTML = stats[s]
 		})
+		if (stats.score<0) {
+			gameOver(false)
+		}
+		if (stats.score>1000000) {
+			gameOver(true)
+		}
 	}
 
 	const repaint = function () {
@@ -218,21 +223,26 @@ const newGame = function (canvas, imgs, statDivs) {
 	}
 
 	const gameOver = function (win) {
-		reset(true)
 		if (win){
-			cd.innerHTML = 'You Win!'
+			msg.innerHTML = 'You Win!'
 		} else {
-			cd.innerHTML = 'You Lose!'
+			msg.innerHTML = 'You Lose!'
 		}
-		cd.style.display = 'block'
+		msg.parentElement.style.display = 'block'
+		setTimeout(()=>{
+			reset(false)
+		},2000)
 	}
 	const levelUp = function () {
 		if (stats.level<5) {
 			stats.level+=1
 			stats.left = stats.level*5+5
-			stats.missed = 0
 			reset(false)
-			startGame()
+			msg.innerHTML = 'Level up, Congrats!';
+			msg.parentElement.style.display = 'block'
+			setTimeout(()=>{
+				start()
+			},1000)
 		} else {
 			stats.left = 0
 		}

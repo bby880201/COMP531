@@ -20,31 +20,9 @@
 	<div class="row">
 		<div class="col-md-8 ">
 			<div class="playground"><canvas width="600" height="600"></canvas></div>
-			<div class="countDown" id="cd"></div>
 		</div>
 		<div class="col-md-4">
-			<div class="panel panel-primary dashboard">
-				<div class="panel-group panel-primary" id="instruction">
-					<div class="score panel-heading text-center">
-						<a data-toggle="collapse" data-parent="#instruction" href="#insCont">Click For Help</a>
-					</div>
-					<div id="insCont" class="panel-collapse collapse">
-						<div class="panel-body">
-						<h4>Click to catch rats in your kitchen, the quicker you catch them, the more score you will earn, just do it!</h4>
-						<p><img src="img/rat.png" /></p>
-						<p>Don't let any rat run away!<br/>Be careful, if the number of rats you missed is more than the level, you'll lose!</p>
-						<p><img src="img/rat2.png" /></p>
-						<p>Occasionally, Jerry will come out looking for cheese, don't let him go since catching him will give you double socre!</p>
-						<p><img src="img/cat.png" /></p>
-						<p>If Tom coming, don't hit him otherwise you'll lose the game!</p>
-						<p>The level will be up if enough rats are caught. Along with level up, their running speed also increase.</p>
-
-						<h4>Ok, catch'em All!</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="panel panel-primary dashboard">
+		<div class="panel panel-primary dashboard">
 				<div class="score panel-heading text-center">Score: <span id="score"></span></div>
 				<div class="panel-body">
 					<div class="moreRats text-center"><span class="nums" id="left"></span> more rats to level up</div>
@@ -55,7 +33,32 @@
 					<button class="btn btn-lg btn-primary btn-block playBtn" id="play">Play</button>
 				</div>
 			</div>
+			<div class="panel panel-primary dashboard">
+				<div class="panel-group panel-primary" id="instruction">
+					<div class="score panel-heading text-center">
+						<a data-toggle="collapse" data-parent="#instruction" href="#insCont">Click For Help</a>
+					</div>
+					<div class="panel-collapse collapse" id="insCont">
+						<div class="panel-body">
+						<h4>Click to catch rats in your kitchen, the quicker you catch them, the more points you will earn, just do it!</h4>
+						<p><img src="img/rat.png" /></p>
+						<p>Don't let any rat run away!<br/>When you miss a rat, you will <b>lose 1000 points</b> as punishment</p>
+						<p><img src="img/rat2.png" /></p>
+						<p>Occasionally, Jerry will come out looking for cheese, don't let him go since catching him will give you double points!</p>
+						<p><img src="img/cat.png" /></p>
+						<p>If Tom coming, don't hit him otherwise you'll <b>lose a lot of points</b>!</p>
+						<p>The level will be up if enough rats are caught. Along with level up, rats' <b>running speed also increase</b>.</p>
+
+						<p>After your score hit <b>1000000 points</b>, you will win the game. If you score is <b>lower than 0</b>, you will lose!</p>
+						<h3>Ok, catch'em All!</h3>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>	
+</div>
+<div class="countDown">
+	<div class="alertMsg" id="msg"></div>
 </div>
 </body>

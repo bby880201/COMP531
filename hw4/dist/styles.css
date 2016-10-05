@@ -14,17 +14,28 @@ div.playground {
 	margin: 30px;
 	width: 610px;
 	height: 610px;
-	border: thick solid black;
-	border-color: black;
+	border: thick solid #337ab7;
+	border-color: #337ab7;
 	background-image: url("img/background.jpg");
 }
 div.countDown {
 	display: none;
-	color: red;
-	font-size: 200px;
+	background-color: rgba(0, 0, 0, 0.7);
 	position: absolute;
-	top: 150px;
-	left: 275px;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height:100%;
+}
+div.alertMsg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 10vw;
+	color: #fff;
+	font-family: Verdana,sans-serif;
+	text-align: center;
 }
 div.dashboard {
 	margin-top: 30px;
@@ -43,7 +54,7 @@ div.stats {
 }
 span.nums {
 	font-size: 20px;
-	color: red;
+	color: #337ab7;
 }
 button.playBtn {
 	font-size: 20px;
