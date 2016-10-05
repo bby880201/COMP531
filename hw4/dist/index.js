@@ -58,8 +58,8 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 		msg.parentElement.style.display = 'none'
 		if (cleanStats) {
 			stats = {score:0, left:10, missed:0, caught:0, rtime:0,level:1}
+			update()
 		}
-		update()
 	}
 
 	// a 3s count down that allow player to prepare before game starting
