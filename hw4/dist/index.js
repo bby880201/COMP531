@@ -1,7 +1,7 @@
 'use strict'
 
 ;window.onload = function windowLoad() {
-	// cache images and other elements for game use
+	// cache rotated images and other elements for game use
 	const rotatedImgs = {}
 	const imgs = Array.from(Array(3)).map((e,i)=>{
 		var img = new Image()
@@ -18,6 +18,7 @@
 	const msg = document.getElementById('msg')
 	const canvas = document.querySelector("canvas")
 
+	// cache all divs for stats, and pass to game so that game can update them
 	const stats = {score:document.getElementById('score'), left:document.getElementById('left'),
 	missed:document.getElementById('missed'),caught:document.getElementById('caught'),
 	rtime:document.getElementById('reaction'),level:document.getElementById('level')}
@@ -29,7 +30,6 @@
 		game.start()
 	}
 
-
 	canvas.addEventListener('click', game.catchThem, false)
 }
 
@@ -39,13 +39,14 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 	const range = {l:{x:[0,0],y:[150,canvas.height-150], img:0}, r:{x:[canvas.width,canvas.width],y:[150,canvas.height-150], img:2},
 	t:{x:[150,canvas.width-150], y:[0,0], img:1}, b:{x:[150,canvas.width-150], y:[canvas.height,canvas.height], img:3}}
 
+	// original stats, cache them for restart use
 	var stats = {score:0, left:10, missed:0, caught:0, rtime:0,level:1}
 	var itvs = []
 	var rats = []
 	var cats = []
 	var frameId = 0
 
-	// reset game state to default
+	// a function used to reset game stats 
 	const reset = function (cleanStats) {
 		itvs.forEach((i)=>{
 			clearInterval(i)
@@ -62,7 +63,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 		}
 	}
 
-	// a 3s count down that allow player to prepare before game starting
+	// a 1s count down that allow player to prepare before game starting
 	const start = function () {
 		msg.innerHTML = '1'
 		msg.parentElement.style.display = 'block'
@@ -78,6 +79,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 	}
 
 	const startGame = function () {
+		// an interval that periodically spawns rat and cat
 		itvs.push(setInterval(()=>{
 			if (rats.length<stats.level+2 && (randInt(0,100)>90 || rats.length===0)) {
 				rats.push(spawn('rat'))
@@ -87,17 +89,20 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 			}
 		}, 100))
 
+		// an interval for elements move
 		itvs.push(setInterval(()=>{
 			ratMove()
 			catMove()
 		}, 50))
 
+		// repaint animation every frame
 		frameId = requestAnimationFrame(function cb(){
 			repaint()
 			requestAnimationFrame(cb)
 		})
 	}
 
+	// randomly spawn rat or cat for game
 	const spawn = function (type) {
 		const startBd = Object.keys(range)[randInt(0,3)]
 		const startPosRange = range[startBd]
@@ -136,6 +141,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 			r.x+=r.vx
 			r.y+=r.vy
 			r.time+=100
+			// if rat is out of boundary, user will loss score
 			if (r.x<borders.l-r.img.width || r.x>borders.r 
 				|| r.y<borders.t-r.img.height || r.y>borders.b) {
 				stats.missed+=1
@@ -150,6 +156,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 		cats.forEach((cat)=>{
 			cat.x+=cat.vx
 			cat.y+=cat.vy
+			// cat will not go out of boundary
 			if (cat.x<borders.l){
 				cat.img = imgs[2][0]
 				cat.vx*=-1
@@ -167,6 +174,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 		})
 	}
 
+	// check if click event overlap with rat/cat
 	const catchThem = function (event) {
 		var {x,y} = relMouseCoords(canvas, event)
 		const checkHit = function (element) {
@@ -181,7 +189,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 		rats.forEach(function(e) {
 			if (checkHit(e)) {
 				e.out = true
-				var s = Math.floor(100000/e.time) * 100
+				var s = Math.floor(100000/e.time) * 100 * stats.level
 				e.bonus?stats.score+=s*2:stats.score+=s
 				stats.rtime+=e.time
 				stats.caught+=1
@@ -195,6 +203,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 		})
 	}
 
+	// update stats to page, also determin if game is over
 	const update = function () {
 		Object.keys(stats).forEach((s)=>{
 			statDivs[s].innerHTML = stats[s]
@@ -236,7 +245,7 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 	const levelUp = function () {
 		if (stats.level<5) {
 			stats.level+=1
-			stats.left = stats.level*5+5
+			stats.left = stats.level<5?stats.level*5+5:0
 			reset(false)
 			msg.innerHTML = 'Level up, Congrats!';
 			msg.parentElement.style.display = 'block'
@@ -251,12 +260,14 @@ const newGame = function (canvas, imgs, statDivs, msg) {
 	update()
 
 	return {
+		// wrap all stats and only return function for page use
 		reset,
 		start,
 		catchThem
 	}
 }
 
+// rotate and flip imgs 
 const rotate = function(img) {
 	const angles = [0,90,180,270]
 	var diffAngles = []
@@ -287,6 +298,7 @@ const rotateAndCache = function(image,angle) {
 }
 
 const getV = function (x, y, bd, lvl) {
+	// generate random velocity within level range
 	const upper = 7+lvl/5
 	const lower = 4+lvl/5
 	switch(bd) {
@@ -306,6 +318,7 @@ const randInt = function(min, max) {
 	return n
 }
 
+// calculate the event coordinates
 const relMouseCoords = function(canvas, event){
     var totalOffsetX = 0
     var totalOffsetY = 0

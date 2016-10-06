@@ -4,10 +4,10 @@ body {
 .panel-group {
 	margin-bottom: 0px;
 }
-a {
+a.help {
 	color: white;
 }
-a:hover,a:focus,a:active {
+a.help:hover,a.help:focus,a.help:active {
 	color: white;
 }
 div.playground {
@@ -20,10 +20,10 @@ div.playground {
 }
 div.countDown {
 	display: none;
+	position:fixed;
+	top:0px;
+	left:0px;
 	background-color: rgba(0, 0, 0, 0.7);
-	position: absolute;
-	top: 0;
-	bottom: 0;
 	width: 100%;
 	height:100%;
 }
@@ -60,4 +60,9 @@ button.playBtn {
 	font-size: 20px;
 	margin-top: 40px;
 	margin-bottom: 20px;	
+}
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
 }
