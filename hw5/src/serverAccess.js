@@ -1,3 +1,5 @@
+// handle all server endpoints access
+// default server url is the dummy server
 const url = 'https://webdev-dummy.herokuapp.com'
 
 const resource = (method, endpoint, payload) => {

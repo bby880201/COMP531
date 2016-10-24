@@ -1,5 +1,13 @@
 .headline{
 	font-style: italic;
+	font-size: 12px;
+}
+p.headline {
+	font-size: 14px;
+}
+.table > tbody > tr > td {
+	border-top: 0px;
+	border-bottom: 1px solid #ddd;
 }
 
 body {
@@ -12,9 +20,6 @@ nav.navbar {
 }
 div {
 	display: block;
-}
-div.alert {
-	display: none;
 }
 div.uploadImg {
 	padding-right: inherit;
@@ -36,7 +41,7 @@ div.friendList {
 	padding-bottom: 0px;
 }
 div.articleBtns {
-	margin-bottom: 30px;
+	margin-bottom: 40px;
 }
 div.contentAvatar {
 	border-color: #337ab7;
@@ -48,6 +53,10 @@ div.contentArtical {
 }
 div.logIn {
 	padding-top: 25px;
+}
+div.cmtTs {
+	color: #a9a9a9;
+	font-size: 10px;
 }
 button.btn {
 	white-space: normal !important;
@@ -94,11 +103,27 @@ td.profileValue {
 	font-weight: bold;
 	width: 60%
 }
+td.cmtAvatar {
+	vertical-align: top !important;
+}
+tr.cmtRow > td {
+	border: 0px !important;
+}
 p.articalTS {
 	color: #a9a9a9;
-	font-size: 8px;
+	font-size: 10px;
 	margin-top: -10px;
 }
 button.headlineBtn{
 	margin-top: -2px;
+}
+hr {
+	margin-bottom:5px !important; 
+	margin-top:10px !important;
+}
+span.cmtAuthor {
+	margin-right: 8px;
+}
+span.cmtText {
+	font-size: 12px;
 }

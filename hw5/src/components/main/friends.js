@@ -2,15 +2,15 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import FriendItem from './friendItem'
 
-export const Friends = ({friendList})=>(
+export const Friends = ({friends, avatars, headlines})=>(
 	<div className="panel panel-primary">
 		<div className="panel-heading"><a className="displayName" href="#">Friends</a></div>
 		<div className="panel-body">
 			<div className="table-responsive">
 				<table className="table table-hover">
 					<tbody>
-					{friendList.map(({name, avatar, headline, id}) => (
-						<FriendItem key={id} friendName={name} headline={headline} avatar={avatar} />
+					{friends.map(({id, name}) => (
+						<FriendItem key={id} friendName={name} headline={headlines[name]} avatar={avatars[name]} />
 					))}
 					</tbody>
 				</table>
@@ -24,18 +24,23 @@ export const Friends = ({friendList})=>(
 )
 
 Friends.propTypes = {
-	friendList: PropTypes.arrayOf(PropTypes.shape({
-        ...FriendItem.propTypes
-    }).isRequired).isRequired
+	friends: PropTypes.arrayOf(
+		PropTypes.shape({
+			...FriendItem.PropTypes
+		}).isRequired
+	).isRequired,
+	avatars: PropTypes.object.isRequired,
+	headlines: PropTypes.object.isRequired,
+
 }
 
 
 export default connect(
 	(state) => {
 		return {
-			friendList: state.friendList.map((val,id)=>{
-				return {...val,id}
-			})
+			friends: state.friends.list,
+			avatars: state.avatars.dict,
+			headlines: state.headlines.dict
 		}
 	}
 )(Friends)

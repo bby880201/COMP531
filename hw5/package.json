@@ -40,6 +40,7 @@
     "bootstrap-webpack": "0.0.5",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "dateformat": "^1.0.12",
     "enzyme": "^2.3.0",
     "eslint": "^2.10.1",
     "eslint-plugin-babel": "^3.2.0",

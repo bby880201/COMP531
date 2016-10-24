@@ -1,7 +1,10 @@
+const dateFormat = require('dateformat')
+
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-export const Info = ({username, avatar, headline, email, phone, dob, zip})=>(
+// profile info page
+export const Info = ({username, avatar, headline, email, dob, zip})=>(
 	<div className="panel panel-primary">
 		<div className="panel-heading">Your profile</div>
 		<div className="panel-body">
@@ -16,17 +19,13 @@ export const Info = ({username, avatar, headline, email, phone, dob, zip})=>(
 						<td className="profileKey text-right">Headline</td>
 						<td className="profileValue text-left" name="status">{headline}</td>
 					</tr>
-					<tr>ßß
+					<tr>
 						<td className="profileKey text-right">Name</td>
 						<td className="profileValue text-left" name="usrname">{username}</td>
 					</tr>
 					<tr>
 						<td className="profileKey text-right">Email address</td>
 						<td className="profileValue text-left" name="email">{email}</td>
-					</tr>
-					<tr>
-						<td className="profileKey text-right">Phone number</td>
-						<td className="profileValue text-left" name="phone">{phone}</td>
 					</tr>
 					<tr>
 						<td className="profileKey text-right">Birthday</td>
@@ -43,14 +42,22 @@ export const Info = ({username, avatar, headline, email, phone, dob, zip})=>(
 	</div>
 )
 
+Info.propTypes = {
+	username: PropTypes.string.isRequired,
+	avatar: PropTypes.string.isRequired,
+	headline: PropTypes.string.isRequired,
+	email: PropTypes.string.isRequired,
+	dob: PropTypes.string.isRequired,
+	zip: PropTypes.number.isRequired
+}
+
 export default connect((state)=>{
 	return{
-		username: state.username,
-		avatar: state.avatar,
-		headline: state.headline,
-		email: state.email,
-		phone: state.phone,
-		dob: state.birthday,
-		zip: state.zipcode
+		username: state.user.username,
+		avatar: state.avatars.dict[state.user.username],
+		headline: state.headlines.dict[state.user.username],
+		email: state.user.email,
+		dob: dateFormat(new Date(state.user.birthday),"mmmm dS, yyyy"),
+		zip: state.user.zipcode
 	}
 })(Info)

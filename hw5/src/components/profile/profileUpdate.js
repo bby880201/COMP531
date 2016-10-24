@@ -47,14 +47,4 @@ export const Update = ()=>(
 	</div>
 )
 
-export default connect((state)=>{
-	return{
-		username: state.username,
-		avatar: state.avatar,
-		headline: state.headline,
-		email: state.email,
-		phone: state.phone,
-		dob: state.birthday,
-		zip: state.zipcode
-	}
-})(Update)				
+export default connect()(Update)

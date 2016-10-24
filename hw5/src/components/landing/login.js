@@ -1,15 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import {PostLogin} from './loginAction'
+import ErrorPanel from '../error'
+import {LocalLogin} from './loginAction'
 
-export const Login = ({onclick})=>{
+// login view that could do login action
+export const Login = ({loginErr, onclick})=>{
 	let usrname, pwd
 	return (
 		<div className="col-sm-6">
 			<div className="panel panel-primary">
 				<div className="panel-heading">Already had an account?</div>
 				<div className="panel-body">
+					{loginErr? <ErrorPanel strong="Login Failed: " errMsg={loginErr}	 />:null}
 					<div className="col-sm-4 center-block">
 						<div className="form-group">
 							<label htmlFor="loginUsr" className="pull-left">Name:</label>
@@ -36,11 +39,20 @@ export const Login = ({onclick})=>{
 	)
 }
 
-export default connect(null,
+Login.propTypes = {
+	onclick: PropTypes.func.isRequired,
+	loginErr: PropTypes.string
+}
+
+export default connect((state)=>{
+		return {
+			loginErr: state.error.loginErr
+		}
+	},
 	(dispatch)=> {
 		return {
 			onclick: (usrname, pwd)=>{
-				PostLogin(usrname, pwd)(dispatch)
+				LocalLogin(usrname, pwd)(dispatch)
 			}
 		}
 	}

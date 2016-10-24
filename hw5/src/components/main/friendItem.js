@@ -3,20 +3,18 @@ import { connect } from 'react-redux'
 
 export const FriendItem = ({friendName, headline, avatar})=>(
 	<tr>
-		<td>
-			<div className="panel-body friendList">
-				<div className="friendAvatar ">
-					<a href="#">
-						<img src={avatar} className="img-circle img-responsive center-block friendAvatar" height="55" width="55" alt="Avatar" />
-					</a>
-				</div>
-				<div className="friendName text-left">
-					<p><a href="#" className="friendList">{friendName}</a></p>
-					<p className="headline">{'"'+headline+'"'}</p>
-				</div>
-			</div>
+		<td className="col-sm-2">
+			<a href="#">
+				<img src={avatar} className="img-circle center-block friendAvatar" height="40" width="40" alt="Avatar" />
+			</a>
 		</td>
-		<td>
+		<td className="col-sm-8 text-left">
+			<div>
+				<a href="#" className="friendList">{friendName}</a>
+			</div>
+			<div className="headline">{'"'+headline+'"'}</div>
+		</td>
+		<td className="col-sm-2">
 			<button className="btn btn-xs btn-danger headlineBtn" type="button">
 				<span className="glyphicon glyphicon-remove"></span>
 			</button>

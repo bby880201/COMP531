@@ -33,7 +33,7 @@ App.propTypes = {
 export default connect(
 	(state) => {
 		return {
-			location: state.location
+			location: state.user.location
 		}
 	}
 )(App)
