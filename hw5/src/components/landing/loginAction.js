@@ -15,14 +15,22 @@ export const LocalLogin = (username, password) => {
 				initialVisit(username, dispatch)
 				getMinorInfo(username, dispatch)
 			}).catch((err) => {
-				dispatch({type: "CRED_ERR"})
+				dispatch({type: "LOGIN_ERR", data:'Username or password is wrong'})
 			})
 		}
 	} else {
 		return (dispatch) => {
-			dispatch({type: "LOGIN_MISS_CRED"})
+			dispatch({type: "LOGIN_ERR", data:'Username or password is missing'})
 		}
 	}
+}
+
+const makeDict = (list, key) => {
+		const dict = {}
+		list.forEach((e)=>{
+			dict[e.username] = e[key]
+		})
+		return dict
 }
 
 // fetech all necessary data in parallel to save time
@@ -34,20 +42,10 @@ const initialVisit = (username, dispatch) => {
 		Promise.all([
 			
 			resource('GET','headlines/'+users)
-			.then((res)=>{
-			const hDict = {}
-			res.headlines.forEach((e)=>{
-				hDict[e.username] = e.headline
-			})
-			return hDict}),
+			.then((res)=>(makeDict(res.headlines,'headline'))),
 
 			resource('GET','avatars/'+users)
-			.then((res)=>{
-			const aDict = {}
-			res.avatars.forEach((e)=>{
-				aDict[e.username] = e.avatar
-			})
-			return aDict}),
+			.then((res)=>(makeDict(res.avatars,'avatar'))),
 
 			resource('GET', 'articles/')
 			.then((res)=>{
@@ -64,7 +62,7 @@ const initialVisit = (username, dispatch) => {
 		})})
 	})
 	.catch((err)=>{
-		dispatch({type: 'MISS_DATA'})
+		dispatch({type: 'LOGIN_ERR', data: 'Failed to get your data, try login later'})
 	})	
 }
 
@@ -106,11 +104,5 @@ const getCommentAvatars = (articles) =>{
 		(e.comments.map((cmt)=>(cmt.author))))
 
 	return resource('GET', 'avatars/'+allComments.join())
-	.then((res)=>{
-		const aDict = {}
-		res.avatars.forEach((e)=>{
-			aDict[e.username] = e.avatar
-		})
-		return aDict}
-	)
+	.then((res)=>(makeDict(res.avatars,'avatar')))
 }

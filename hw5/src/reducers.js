@@ -1,14 +1,10 @@
 import { combineReducers } from 'redux'
 
 // handle err actions
-const error = (state = {}, action)=>{
+export const error = (state = {}, action)=>{
 	switch(action.type) {
-		case 'LOGIN_MISS_CRED':
-			return {loginErr: 'Username or password is missing'}
-		case 'CRED_ERR':
-			return {loginErr: 'Username or password is wrong'}
-		case 'MISS_DATA':
-			return {loginErr: 'Failed to get your data, try login later'}
+		case 'LOGIN_ERR':
+			return {loginErr: action.data}
 		case 'LOGOUT_ERR':
 			return {logoutErr: action.data}
 		case 'MAIN_ERR':
@@ -20,7 +16,7 @@ const error = (state = {}, action)=>{
 	}
 }
 
-const articles = (state = {keyWord:'', list:[]}, action)=>{
+export const articles = (state = {keyWord:'', list:[]}, action)=>{
 	switch (action.type) {
 		case 'LOGOUT':
 			return {keyWord:'', list:[]}
@@ -39,7 +35,7 @@ const articles = (state = {keyWord:'', list:[]}, action)=>{
 	}
 }
 
-const headlines = (state = {dict:{}}, action)=>{
+export const headlines = (state = {dict:{}}, action)=>{
 	switch (action.type) {
 		case 'LOGOUT':
 			return {dict:{}}
@@ -54,20 +50,20 @@ const headlines = (state = {dict:{}}, action)=>{
 	}
 }
 
-const avatars = (state = {dict:{}}, action)=>{
+export const avatars = (state = {dict:{}}, action)=>{
 	switch (action.type) {
 		case 'LOGOUT':
 			return {dict:{}}
 		case 'LOGIN':
 			return {dict:{...action.data.avatars}}
 		case 'UPDATE_AVATAR':
-			return {...state, dict:{...state.dict, ...action.avatars}}
+			return {...state, dict:{...state.dict, ...action.data.avatars}}
 		default:
 			return state
 	}
 }
 
-const friends = (state = {n:0, list:[]}, action)=>{
+export const friends = (state = {n:0, list:[]}, action)=>{
 	switch (action.type) {
 		case 'LOGOUT':
 			return {n:0, list:[]}
@@ -78,7 +74,7 @@ const friends = (state = {n:0, list:[]}, action)=>{
 	}
 }
 
-const user = (state = {location: 'LANDING'}, action)=>{
+export const user = (state = {location: 'LANDING'}, action)=>{
 	switch(action.type) {
 		case'LOGOUT':
 			return {location:'LANDING'}

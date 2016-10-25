@@ -15,10 +15,9 @@ export const UpdateToServer = (text, type)=>{
 				resource('POST', 'article', {text})
 				.then((res)=>{
 					dispatch({type: 'ADD_ARTICLE', data: res.articles})
-					throw new Error('asd')
 				})
 				.catch(()=>{
-					dispatch({type:'MAIN_ERR', data:'Error occurs when update an article'})
+					dispatch({type:'MAIN_ERR', data:'Error occurs when post an article'})
 				})
 			}
 
@@ -45,4 +44,23 @@ export const ArticleFilter = (keyWord)=>{
 	return (dispatch) => {
 		dispatch({type: 'FILTER_ARTICLE', keyWord})
 	}
+}
+
+export const filterAndSort = (keyWord, feeds)=> {
+	let newFeeds
+	// filter out articles containing key word
+	if (keyWord) {
+		newFeeds = feeds.filter((e)=>{
+			return e.author.search(keyWord)>=0 || e.text.search(keyWord)>=0
+		})
+	} else {
+		newFeeds = feeds
+	}
+	// sort articles so that newest article appears first
+	newFeeds.sort((a,b)=>{
+		const keya = a.date
+		const keyb = b.date
+		return keya>keyb ? -1:1
+	})
+	return newFeeds
 }
