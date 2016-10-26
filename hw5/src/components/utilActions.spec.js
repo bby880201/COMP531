@@ -27,7 +27,6 @@ describe('Logout and Error clear action tests', () => {
 	it('should log out a user', (done) => {
 		mock(`${url}/logout`, { 
 			method: 'PUT',
-			credentials: 'cors',
 			headers: {'Content-Type': 'application/json'}
 		})
 		Logout()((action) =>{
