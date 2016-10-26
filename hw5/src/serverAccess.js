@@ -1,6 +1,6 @@
-// import fetch from 'isomorphic-fetch'
+import fetch from 'isomorphic-fetch'
 // this fetch is for test use
-import fetch, { mock } from 'mock-fetch'
+// import fetch, { mock } from 'mock-fetch'
 
 
 // handle all server endpoints access

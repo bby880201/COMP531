@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/components/landing/login.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">src/components/landing/</a> login.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.17% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">43.75% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>7/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+&nbsp;
+import ErrorPanel from '../error'
+import {LocalLogin} from './loginAction'
+&nbsp;
+// login view that could do login action
+export const Login = <span class="fstat-no" title="function not covered" >({loginErr, onclick})=&gt;<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" >{</span></span></span>
+<span class="cstat-no" title="statement not covered" >	l</span>et usrname, pwd
+<span class="cstat-no" title="statement not covered" >	r</span>eturn (
+		&lt;div className="col-sm-6"&gt;
+			&lt;div className="panel panel-primary"&gt;
+				&lt;div className="panel-heading"&gt;Already had an account?&lt;/div&gt;
+				&lt;div className="panel-body"&gt;
+					{loginErr? &lt;ErrorPanel strong="Login Failed: " errMsg={loginErr}	 /&gt;:null}
+					&lt;div className="col-sm-4 center-block"&gt;
+						&lt;div className="form-group"&gt;
+							&lt;label htmlFor="loginUsr" className="pull-left"&gt;Name:&lt;/label&gt;
+							&lt;input type="text" className="form-control" ref={ <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>node) =&gt; usrname = node } /&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div className="col-sm-4 center-block"&gt;
+						&lt;div className="form-group"&gt;
+							&lt;label htmlFor="loginPwd" className="pull-left"&gt;Password:&lt;/label&gt;
+							&lt;input type="password" className="form-control" ref={ <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(</span></span>node) =&gt; pwd = node } /&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div className="col-sm-3 center-block logIn"&gt;
+						&lt;div className="form-group"&gt;
+							&lt;button className="btn btn-primary btn-sm logIn" id="login" onClick={<span class="fstat-no" title="function not covered" >(e)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >								e</span>.preventDefault()
+<span class="cstat-no" title="statement not covered" >								o</span>nclick(usrname.value, pwd.value)
+							}}&gt;Log In&lt;/button&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	)
+}
+&nbsp;
+Login.propTypes = {
+	onclick: PropTypes.func.isRequired,
+	loginErr: PropTypes.string
+}
+&nbsp;
+export default connect(<span class="fstat-no" title="function not covered" >(state)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >		r</span>eturn {
+			loginErr: state.error.loginErr
+		}
+	},
+<span class="fstat-no" title="function not covered" >	(dispatch)=&gt; {</span>
+<span class="cstat-no" title="statement not covered" >		r</span>eturn {
+			onclick: <span class="fstat-no" title="function not covered" >(usrname, pwd)=&gt;{</span>
+<span class="cstat-no" title="statement not covered" >				L</span>ocalLogin(usrname, pwd)(dispatch)
+			}
+		}
+	}
+)(Login)</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Oct 25 2016 23:34:42 GMT-0700 (PDT)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
