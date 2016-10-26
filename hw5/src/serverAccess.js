@@ -1,3 +1,8 @@
+// import fetch from 'isomorphic-fetch'
+// this fetch is for test use
+import fetch, { mock } from 'mock-fetch'
+
+
 // handle all server endpoints access
 // default server url is the dummy server
 const url = 'https://webdev-dummy.herokuapp.com'
