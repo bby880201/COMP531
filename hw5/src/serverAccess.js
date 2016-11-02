@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch'
+// import fetch from 'isomorphic-fetch'
 // this fetch is for test use
 // import fetch, { mock } from 'mock-fetch'
 

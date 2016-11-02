@@ -1,6 +1,6 @@
 body {
 	padding-top: 70px;
-	background-color: #fff;
+	background-color: #e3e3e3;
 }
 nav.navbar {
 	border-radius: 0px;
@@ -90,7 +90,7 @@ td.profileValue {
 	font-weight: bold;
 	width: 60%
 }
-p.articalTS {
+span.articalTS {
 	color: #a9a9a9;
 	font-size: 8px;
 	margin-top: -10px;

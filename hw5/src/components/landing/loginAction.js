@@ -55,7 +55,7 @@ const initialVisit = (username, dispatch) => {
 			const friends = {n: res.following.length, 
 				list: res.following.map((name,id)=>{return {id,name}})}
 			getCommentAvatars(tmp[2])
-			.then((res)=>(dispatch({type: 'UPDATE_AVATAR', avatars:res})))
+			.then((res)=>(dispatch({type: 'UPDATE_AVATAR', data:{avatars:res}})))
 			dispatch({type: 'LOGIN', data:{
 				headlines: tmp[0], avatars:tmp[1], 
 				articles: tmp[2], friends, username, keyWord:''}
