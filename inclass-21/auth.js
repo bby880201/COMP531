@@ -1,14 +1,15 @@
 const md5 = require('md5')
 const cookieParser = require('cookie-parser')
 
+const pepper = md5('arandompaper')
+
 const users = {
 	bb26: {
-		salt: "saltforbb25"
-		hash: "d285bdcb3191ae916d39a3e1ce4eb22e"
+		salt: 'saltforbb25'
+		hash:  '5d41c3e80fcfa3cd9c07a26787b1724b'
 	}
 }
 
-const pepper = md5('arandompaper')
 
 app.use(cookieParser())
 
