@@ -7,8 +7,14 @@ export const error = (state = {}, action)=>{
 			return {loginErr: action.data}
 		case 'LOGOUT_ERR':
 			return {logoutErr: action.data}
+		case 'SIGNUP_ERR':
+			return {signupErr: action.data}
 		case 'MAIN_ERR':
 			return {mainErr: action.data}
+		case 'FRIEND_ERR':
+			return {friendErr: action.data}
+		case 'PROFILE_ERR':
+			return {profileErr: action.data}
 		case 'ERR_CLEAR':
 			return {}
 		default:
@@ -26,10 +32,32 @@ export const articles = (state = {keyWord:'', list:[]}, action)=>{
 			return {...state, list: state.list.map((e)=>{
 				return e._id===action._id ? {...e, commentOn: !e.commentOn} : e
 			})}
+		case 'TOGGLE_EDIT':
+			const articles = state.list.map((e1)=>{
+				if (e1._id===action.data._id) {
+					if (action.data.commentId) {
+						const comments = e1.comments.map((e)=>{
+							if (e.commentId===action.data.commentId) {
+								e.editable = !e.editable
+							}
+							return {...e}
+						})
+						e1.comments = comments
+					} else {
+						e1.editable = !e1.editable
+					}
+				}
+				return {...e1}
+			})
+			return {...state, list:articles}
 		case 'FILTER_ARTICLE':
 			return {...state, keyWord:action.keyWord} 
 		case 'ADD_ARTICLE':
-			return {...state, articles:[...articles, ...action.data]}
+			const newList = state.list.filter((e)=>{
+				return e._id!=action.data._id
+			})
+			newList.push(action.data)
+			return {...state, list:newList}
 		default:
 			return state
 	}
@@ -69,6 +97,8 @@ export const friends = (state = {n:0, list:[]}, action)=>{
 			return {n:0, list:[]}
 		case 'LOGIN':
 			return {...action.data.friends}
+		case 'UPDATE_FRIEND':
+			return {n:action.data.friends.length, list:[...action.data.friends]}
 		default:
 			return state
 	}

@@ -5,7 +5,7 @@ import Friends from './friends'
 import User from './user'
 import Feed from './feed'
 import ErrorPanel from '../error'
-import { filterAndSort } from './mainActions'
+import { FilterAndSort } from './mainAction'
 
 export const Main = ({feeds, avatars, mainErr})=>(
 	<div className="container text-center">
@@ -34,7 +34,7 @@ Main.propTypes = {
 
 export default connect((state)=>{
 	return {
-		feeds: filterAndSort(state.articles.keyWord, state.articles.list),
+		feeds: FilterAndSort(state.articles.keyWord, state.articles.list),
 		avatars: state.avatars.dict,
 		mainErr: state.error.mainErr
 	}

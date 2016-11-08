@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { Logout, NavigateTo } from './utilActions'
-import { ArticleFilter } from './main/mainActions'
+import { ArticleFilter } from './main/mainAction'
 
 export const HeaderButtons = ({location, navto, logout, search})=>{
 	let keyWord

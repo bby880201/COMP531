@@ -2,7 +2,7 @@ import mockery from 'mockery'
 import fetch, { mock } from 'mock-fetch'
 import { expect } from 'chai'
 
-import { UpdateToServer, ToggleComment, ArticleFilter } from './mainActions'
+import { UpdateToServer, ToggleComment, ArticleFilter } from './mainAction'
 
 describe('Main actions tests', () => {
 	let resource, url

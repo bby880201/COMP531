@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-export const FriendItem = ({friendName, headline, avatar})=>(
+import { RemoveFriend } from './mainAction'
+
+export const FriendItem = ({friendName, headline, avatar, remove})=>(
 	<tr>
 		<td className="col-sm-2">
 			<a href="#">
@@ -15,7 +17,10 @@ export const FriendItem = ({friendName, headline, avatar})=>(
 			<div className="headline">{'"'+headline+'"'}</div>
 		</td>
 		<td className="col-sm-2">
-			<button className="btn btn-xs btn-danger headlineBtn" type="button">
+			<button className="btn btn-xs btn-danger headlineBtn" type="button"
+			onClick={(e)=>{
+				remove(friendName)
+			}}>
 				<span className="glyphicon glyphicon-remove"></span>
 			</button>
 		</td>
@@ -25,7 +30,13 @@ export const FriendItem = ({friendName, headline, avatar})=>(
 FriendItem.propTypes = {
 	friendName: PropTypes.string.isRequired,
 	headline: PropTypes.string.isRequired,
-	avatar: PropTypes.string.isRequired
+	avatar: PropTypes.string.isRequired,
+	remove: PropTypes.func.isRequired
 }
 
-export default connect()(FriendItem)
+export default connect( null, (dispatch) => {
+		return {
+			remove: (id) => (RemoveFriend(id)(dispatch))
+		}
+	}
+)(FriendItem)

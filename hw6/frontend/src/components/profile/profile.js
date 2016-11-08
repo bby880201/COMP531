@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import Info from './profileInfo'
-import Update from './profileUpdate'
+import InfoUpdate from './profileUpdate'
 
 // profile page that shows profile of user and could update profile info
 export const Profile = ()=>(
@@ -12,7 +12,7 @@ export const Profile = ()=>(
 				<Info />
 			</div>
 			<div className="col-sm-6">
-				<Update />
+				<InfoUpdate />
 			</div>
 		</div>
 	</div>

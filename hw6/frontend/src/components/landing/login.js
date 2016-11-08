@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import ErrorPanel from '../error'
-import {LocalLogin} from './loginAction'
+import { LocalLogin } from './loginAction'
 
 // login view that could do login action
 export const Login = ({loginErr, onclick})=>{
