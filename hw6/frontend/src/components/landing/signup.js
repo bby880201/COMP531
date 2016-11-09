@@ -20,8 +20,8 @@ export const Signup = ({err, onclick})=>{
 						{
 							entries.map((val, idx)=>(<SignupEntry key={idx} name={val} />))
 						}
-						<input type="button" value="Sign Up!" className="btn btn-primary btn-sm" 
-						onClick={(e)=>{
+						<input type="button" id="signup" value="Sign Up!" 
+						className="btn btn-primary btn-sm"  onClick={(e)=>{
 							e.preventDefault()
 							onclick(signupForm)
 						}}/>

@@ -18,7 +18,7 @@ export const InfoUpdate = ({ update, clear, err })=>{
 						<tr>
 							<td className="profileKey text-right">Email address</td>
 							<td className="text-left">
-								<input type="email" name="email" placeholder="xxx@yyy.zzz" 
+								<input type="email" name="email" placeholder="xxx@yyy.zzz" id="newEmail"
 								ref={(node)=>fields['email']=node} />
 							</td>
 						</tr>
@@ -26,25 +26,26 @@ export const InfoUpdate = ({ update, clear, err })=>{
 							<td className="profileKey text-right">Zipcode</td>
 							<td className="text-left">
 								<input type="text" name="zip" maxLength="5" placeholder="5 digits zipcode"
-								ref={(node)=>fields['zip']=node} />
+								id="newZip" ref={(node)=>fields['zip']=node} />
 							</td>
 						</tr>
 						<tr>
 							<td className="profileKey text-right">Password</td>
 							<td className="text-left">
-								<input type="password" name="pwd" 
+								<input type="password" name="pwd" id="newPwd"
 								ref={(node)=>fields['pwd']=node} />
 							</td>
 						</tr>
 						<tr>
 							<td className="profileKey text-right">Confirm password</td>
 							<td className="text-left">
-								<input type="password" name="pwdcnf" ref={(node)=>fields['pwdcnf']=node} />
+								<input type="password" name="pwdcnf" id="pwdCnf"
+								ref={(node)=>fields['pwdcnf']=node} />
 							</td>
 						</tr>
 						<tr>
 							<td><button className="pull-right btn btn-primary btn-sm btn-responsive" 
-							onClick={(e)=>{
+							id="updateInfo" onClick={(e)=>{
 								update(fields)
 							}}>Update</button></td>
 							<td><button className="pull-left btn btn-primary btn-sm btn-responsive" 

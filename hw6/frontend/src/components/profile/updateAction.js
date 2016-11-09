@@ -11,10 +11,9 @@ export const Update = (fields)=>{
 			resource('PUT', 'email', {email})
 			.then((res) => {
 				dispatch({type: "UPDATE_INFO", data: {email: res.email}})
-				fields.email.value = ''
 			})
 			.catch((err) => {
-				dispatch({type: "PROFILE_ERR", data: {update: 'Email update failed at server end'}})
+				dispatch({type: "PROFILE_ERR", data: {update: 'Email update failed at server end: '+err.message}})
 			})
 		}
 
@@ -24,10 +23,9 @@ export const Update = (fields)=>{
 			.then((res)=>{
 				console.log(res)
 				dispatch({type: "UPDATE_INFO", data: {zipcode: res.zipcode}})
-				fields.zip.value = ''
 			})
 			.catch((err) => {
-				dispatch({type: "PROFILE_ERR", data: {update: 'Zipcode update failed at server end'}})
+				dispatch({type: "PROFILE_ERR", data: {update: 'Zipcode update failed at server end: '+err.message}})
 			})
 		}
 
@@ -39,11 +37,10 @@ export const Update = (fields)=>{
 				console.log(res)
 				dispatch({type: "PROFILE_ERR", 
 					data: {update: 'Password update success but server side will not change'}})
-				fields.pwd.value = ''
-				fields.pwdcnf.value = ''
+
 			})
 			.catch((err) => {
-				dispatch({type: "PROFILE_ERR", data: {update: 'Password update failed at server end'}})
+				dispatch({type: "PROFILE_ERR", data: {update: 'Password update failed at server end: '+err.message}})
 			})
 		}
 	}

@@ -9,8 +9,8 @@ export const User = ({username, avatar, headline, update, navto})=>{
 	let newHeadline, newArticle, imgFile
 	return (
 		<div className="panel panel-primary">
-			<div className="panel-heading">
-				<a className="displayName" href="profile.html">{username}</a>
+			<div className="panel-heading" id="mainName">
+				{username}
 			</div>
 			<div className="panel-body">
 				<p><a href="#" onClick={(e) => {
@@ -18,10 +18,11 @@ export const User = ({username, avatar, headline, update, navto})=>{
 					navto("PROFILE")}}>
 				<img src={avatar} className="img-circle" height="80" width="80" alt="Avatar" />
 				</a></p>
-				<p className="headline">{'"'+headline+'"'}</p>
-				<input type="text" placeholder="Update headline here!" 
+				<p className="headline" id="hdl">{'"'+headline+'"'}</p>
+				<input type="text" placeholder="Update headline here!" id="newHdl"
 				ref={(node)=>{ newHeadline = node }} />
-				<button className="btn btn-xs btn-primary headlineBtn" type="button" onClick={()=>{
+				<button type="button" className="btn btn-xs btn-primary headlineBtn" 
+				id="hdlPost" onClick={()=>{
 						update(newHeadline.value, 'headline')
 						newHeadline.value=""
 					}}>
@@ -30,7 +31,7 @@ export const User = ({username, avatar, headline, update, navto})=>{
 			</div>	
 			<div className="panel-body">
 				<div className="form-group">
-					<textarea className="form-control newpost" 
+					<textarea className="form-control newpost" id="newPost" 
 					placeholder="Post someting to your friends!" 
 					rows="5" ref={(node)=>{ newArticle = node }}></textarea>
 				</div>
@@ -38,7 +39,8 @@ export const User = ({username, avatar, headline, update, navto})=>{
 					<input type="file" accept="image/*" ref={(node)=>{ imgFile = node }} />
 				</div>
 				<div className=" pull-right">
-					<button type="button" className="btn btn-primary btn-sm" onClick={()=>{
+					<button type="button" className="btn btn-primary btn-sm" id="newPostBtn"
+					onClick={()=>{
 						update(newArticle.value, 'article', imgFile.files[0])
 						newArticle.value = ''
 						imgFile.value = ''

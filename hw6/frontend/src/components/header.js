@@ -15,20 +15,22 @@ export const HeaderButtons = ({location, navto, logout, search})=>{
 				<span className="glyphicon glyphicon-home"></span>Home</a></li>
 			</ul>
 			<ul className="nav navbar-nav">
-				<li className={location=="PROFILE"?"active":""}><a href="#" onClick={(e) => {
+				<li className={location=="PROFILE"?"active":""}>
+				<a href="#" id="toProfile" onClick={(e) => {
 				e.preventDefault()
 				navto("PROFILE")}}>
 				<span className="glyphicon glyphicon-user"></span>My Profile</a></li>
 			</ul>
 			<ul className="nav navbar-nav">
-				<li><a href="#" onClick={(e) => {
+				<li><a href="#" id="logout" onClick={(e) => {
 				e.preventDefault()
 				logout()}}>
 				<span className="glyphicon glyphicon-log-out"></span>Log Out</a></li>
 			</ul>
 			<form className="navbar-form navbar-right" role="search">
 				<div className="form-group input-group">
-					<input type="text" className="form-control" placeholder="Search.." ref={(node)=>{keyWord=node}}/>
+					<input type="text" className="form-control" 
+					placeholder="Search.." ref={(node)=>{keyWord=node}}/>
 					<span className="input-group-btn">
 						<button className="btn btn-default" type="button" onClick={()=>{
 							search(keyWord.value)
@@ -47,7 +49,8 @@ export const Header = ({location, navto, logout, search})=>(
 	<nav className="navbar navbar-inverse navbar-fixed-top">
 		<div className="container-fluid">
 			<div className="navbar-header">
-				<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<button type="button" className="navbar-toggle" 
+				data-toggle="collapse" data-target="#myNavbar">
 					<span className="icon-bar"></span>
 					<span className="icon-bar"></span>
 					<span className="icon-bar"></span>

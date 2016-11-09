@@ -26,8 +26,9 @@ export const Friends = ({friends, avatars, headlines, err, addFriend})=> {
 				</div>
 				<div className="panel-body">
 					<div className="friendBtn">
-						<input type="text" placeholder="Add new friend" ref={(node)=>newFriend=node} />
-						<button type="button" className="btn btn-primary btn-xs headlineBtn" 
+						<input type="text" placeholder="Add new friend" id="newFrd" 
+						ref={(node)=>newFriend=node} />
+						<button type="button" className="btn btn-primary btn-xs headlineBtn" id="addFrd"
 						onClick={(e)=>{
 							if (friendNames.indexOf(newFriend.value)<0) {
 								addFriend(newFriend.value)	

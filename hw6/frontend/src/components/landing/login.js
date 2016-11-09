@@ -16,18 +16,21 @@ export const Login = ({loginErr, onclick})=>{
 					<div className="col-sm-4 center-block">
 						<div className="form-group">
 							<label htmlFor="loginUsr" className="pull-left">Name:</label>
-							<input type="text" className="form-control" ref={ (node) => usrname = node } />
+							<input type="text" className="form-control" id="username"
+							ref={ (node) => usrname = node } />
 						</div>
 					</div>
 					<div className="col-sm-4 center-block">
 						<div className="form-group">
 							<label htmlFor="loginPwd" className="pull-left">Password:</label>
-							<input type="password" className="form-control" ref={ (node) => pwd = node } />
+							<input type="password" className="form-control" id="password"
+							ref={ (node) => pwd = node } />
 						</div>
 					</div>
 					<div className="col-sm-3 center-block logIn">
 						<div className="form-group">
-							<button className="btn btn-primary btn-sm logIn" id="login" onClick={(e)=>{
+							<button className="btn btn-primary btn-sm logIn" id="login" 
+							onClick={(e)=>{
 								e.preventDefault()
 								onclick(usrname.value, pwd.value)
 							}}>Log In</button>

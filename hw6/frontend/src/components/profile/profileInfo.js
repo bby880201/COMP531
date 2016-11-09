@@ -35,7 +35,7 @@ export const Info = ({username, avatar, headline, email, dob, zip, update})=> {
 						</tr>
 						<tr>
 							<td className="profileKey text-right">Email address</td>
-							<td className="profileValue text-left" name="email">{email}</td>
+							<td className="profileValue text-left" name="email" id="emailProf">{email}</td>
 						</tr>
 						<tr>
 							<td className="profileKey text-right">Birthday</td>
@@ -43,7 +43,7 @@ export const Info = ({username, avatar, headline, email, dob, zip, update})=> {
 						</tr>
 						<tr>
 							<td className="profileKey text-right">Zipcode</td>
-							<td className="profileValue text-left" name="zip">{zip}</td>
+							<td className="profileValue text-left" name="zip" id="zipProf">{zip}</td>
 						</tr>
 					</tbody>
 					</table>

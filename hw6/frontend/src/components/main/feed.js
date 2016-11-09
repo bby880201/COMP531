@@ -45,13 +45,13 @@ export const Feed = ({article, avatars, username, toggleComment, navto, toggleEd
 						ref={(node)=>{ newArticle = node }}>
 							{article.text}
 						</div>)
-						:(<div>{article.text}</div>)
+						:(<div className="feed">{article.text}</div>)
 					}
 					<div className="articleBtns">
 						<div className="pull-right">
 							{
 								article.editable?
-								<button type="button" className="btn btn-default btn-sm"
+								<button type="button" className="btn btn-default btn-sm feedEditBtn"
 								onClick={(e)=>{
 									e.preventDefault()
 									if (newArticle && newArticle.innerText!==article.text){
@@ -60,13 +60,13 @@ export const Feed = ({article, avatars, username, toggleComment, navto, toggleEd
 									toggleEdit(article._id)
 								}}>Post</button>:null
 							}
-							<button type="button" className="btn btn-default btn-sm" 
-							onClick={()=>(toggleComment(article._id))}>Comment</button>
 							{
 								article.author===username?
-								<button type="button" className="btn btn-default btn-sm"
+								<button type="button" className="btn btn-default btn-sm feedEdit"
 								onClick={()=>toggleEdit(article._id)}>Edit</button>:null
 							}
+							<button type="button" className="btn btn-default btn-sm" 
+							onClick={()=>(toggleComment(article._id))}>Comment</button>
 						</div>
 					</div>
 					{article.commentOn?<Comments artId={article._id} data={article.comments} />:null}

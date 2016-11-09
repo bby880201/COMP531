@@ -17,7 +17,7 @@ export const FriendItem = ({friendName, headline, avatar, remove})=>(
 			<div className="headline">{'"'+headline+'"'}</div>
 		</td>
 		<td className="col-sm-2">
-			<button className="btn btn-xs btn-danger headlineBtn" type="button"
+			<button className="btn btn-xs btn-danger headlineBtn" name="flwRm" type="button"
 			onClick={(e)=>{
 				remove(friendName)
 			}}>

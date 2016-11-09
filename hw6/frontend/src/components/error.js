@@ -9,7 +9,8 @@ export const ErrorPanel = ({strong, errMsg, errReset, className})=>(
 		onClick={(e)=> {
 			errReset()
 		}}>&times;</a>
-		<strong>{strong}</strong>{errMsg}
+		<strong>{strong}</strong>
+		<span id="errMsg">{errMsg}</span>
 	</div>
 )
 

@@ -54,7 +54,8 @@ export const SignupEntry = ({name, err})=>{
 		<div className="form-group">
 			{errMsg? <ErrorPanel strong={label+' invalid: '} errMsg={errMsg} className="smallSize"/>:null}
 			<label htmlFor={name} className="pull-left">{label}</label>
-			<input type={type} className="form-control" name={name} placeholder={placeHold} />
+			<input type={type} className="form-control" id={name} 
+			name={name} placeholder={placeHold} />
 		</div>
 	)
 }
