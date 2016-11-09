@@ -1,0 +1,6 @@
+<testsuite name="Mocha Tests" tests="4" failures="0" errors="0" skipped="0" timestamp="Wed, 09 Nov 2016 07:51:42 GMT" time="0.838">
+<testcase classname="Validate Article functionality" name="should give me three or more articles" time="0.33"/>
+<testcase classname="Validate Article functionality" name="should add two articles with successive article ids, and return the article each time" time="0.169"/>
+<testcase classname="Validate Article functionality" name="should return an article with a specified id" time="0.182"/>
+<testcase classname="Validate Article functionality" name="should return nothing for an invalid id" time="0.152"/>
+</testsuite>
