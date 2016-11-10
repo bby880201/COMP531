@@ -97,7 +97,7 @@ export const AddFriend = (id) => {
 			])
 			.then((res)=>{
 				if (res[1].headlines.length === 0) {
-					throw new Error('Can\'t find user' + id)
+					throw new Error('Can\'t find user: ' + id)
 				}
 				dispatch({type: 'UPDATE_HEADLINE', data:res[1].headlines[0]})
 
