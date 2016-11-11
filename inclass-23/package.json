@@ -1,0 +1,28 @@
+{
+  "name": "stub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "auth.js",
+  "scripts": {
+    "start": "node auth.js",
+    "watch": "nodemon auth.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "request": "^2.78.0 ",
+    "querystring": "^0.2.0",
+    "cookie-parser": "^1.4.3",
+    "express-session": "^1.14.2",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
