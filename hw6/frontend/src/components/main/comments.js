@@ -7,7 +7,7 @@ import { PutArticle } from './feedAction'
 export const Comments = ({artId, username, data, avatars, postCmt})=> {
 	let newCmt
 	return (
-		<div className="table-responsive">
+		<div id="cmtTbl" className="table-responsive">
 			<hr />
 			<table className="table">
 				<tbody>

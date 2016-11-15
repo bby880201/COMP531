@@ -1,3 +1,9 @@
+@media screen and (max-width: 767px) {
+	#cmtTbl > .table > tbody > tr > td {
+		white-space: normal;
+	}
+}
+
 .table-responsive {
     overflow-x: auto;
 }
