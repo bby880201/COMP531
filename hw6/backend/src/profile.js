@@ -1,11 +1,13 @@
+'use strict'
 const users = {
 	users:[{
 		id:0,
-		username:'a',
+		username:'bb26',
 		zipcode:12345,
 		email:'abx@xyz.com',
 		avatar:'./avatar/0.img',
-		headline:'hello from a'
+		headline:'hello from a',
+		dob: 479430683312
 	},
 	{
 		id:1,
@@ -13,7 +15,8 @@ const users = {
 		zipcode:12378,
 		email:'bbb@xyz.com',
 		avatar:'./avatar/1.img',
-		headline:'hello from b'
+		headline:'hello from b',
+		dob: 379430683312
 	},
 	{
 		id:2,
@@ -21,7 +24,8 @@ const users = {
 		zipcode:13213,
 		email:'ccc@xyz.com',
 		avatar:'./avatar/2.img',
-		headline:'hello from c'
+		headline:'hello from c',
+		dob: 279430683312
 	},
 	{
 		id:3,
@@ -29,10 +33,10 @@ const users = {
 		zipcode:32179,
 		email:'ddd@xyz.com',
 		avatar:'./avatar/4.img',
-		headline:'hello from d'
+		headline:'hello from d',
+		dob: 179430683312
 	}]
 }
-
 const index = (req, res) => {
      res.send({ hello: 'world' })
 }
@@ -98,7 +102,8 @@ const putAvatar = (req,res)=>{
 }
 
 const getDob = (req,res)=>{
-	res.send({username:users.users[0].username, dob:(new Date(req.body.dob)).valueOf()})
+	console.log({username:users.users[0].username, dob:users.users[0].dob})
+	res.send({username:users.users[0].username, dob:users.users[0].dob})
 }
 
 module.exports = app => {

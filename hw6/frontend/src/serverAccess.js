@@ -5,7 +5,8 @@
 
 // handle all server endpoints access
 // default server url is the dummy server
-const url = 'https://webdev-dummy.herokuapp.com'
+// const url = 'https://webdev-dummy.herokuapp.com'
+const url = 'https://nameless-springs-77197.herokuapp.com'
 
 const resource = (method, endpoint, payload) => {
 	const options =  {

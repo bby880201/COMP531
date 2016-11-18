@@ -27,9 +27,11 @@ export const LocalLogin = (username, password) => {
 
 const makeDict = (list, key) => {
 		const dict = {}
-		list.forEach((e)=>{
-			dict[e.username] = e[key]
-		})
+		if (list) {
+			list.forEach((e)=>{
+				dict[e.username] = e[key]
+			})
+		}
 		return dict
 }
 
@@ -49,7 +51,11 @@ const initialVisit = (username, dispatch) => {
 
 			resource('GET', 'articles/')
 			.then((res)=>{
-				return res.articles.map((e)=>({...e, commentOn: false}))
+				if (res.articles){
+					return res.articles.map((e)=>({...e, commentOn: false}))
+				} else {
+					return []
+				}
 			})])
 		.then((tmp)=>{
 			const friends = {n: res.following.length, 
