@@ -5,24 +5,14 @@ import ErrorPanel from '../error'
 
 // some constant texts
 const labelMap = {
-	account: {
-		label: 'Account Name', 
-		placeHold: 'Enter an account name',
-		type: 'text'
-	},
-	display: {
-		label: 'Display Name', 
-		placeHold: 'Enter a display name', 
+	username: {
+		label: 'Username', 
+		placeHold: 'Enter a username for your account',
 		type: 'text'
 	},
 	email: {
 		label: 'Email Address', 
 		placeHold: 'Your email as abc@xyz.com', 
-		type: 'text'
-	},
-	phone: {
-		label: 'Phone Number', 
-		placeHold: 'Your phone number as ###-###-####', 
 		type: 'text'
 	},
 	dob: {
@@ -62,7 +52,7 @@ export const SignupEntry = ({name, err})=>{
 
 SignupEntry.propTypes = {
 	name: PropTypes.oneOf(
-		['account', 'display', 'email', 'phone', 'dob', 'zip', 'pwd', 'pwdcnf']
+		['username', 'email', 'dob', 'zip', 'pwd', 'pwdcnf']
 		).isRequired,
 	err: PropTypes.object
 }

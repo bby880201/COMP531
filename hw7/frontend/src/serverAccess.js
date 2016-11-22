@@ -5,8 +5,7 @@
 
 // handle all server endpoints access
 // default server url is the dummy server
-// const url = 'https://webdev-dummy.herokuapp.com'
-const url = 'http://localhost:3000'
+const url = 'https://ricebook-bb26-hw7.herokuapp.com'
 
 const resource = (method, endpoint, payload) => {
 	const options =  {
@@ -27,13 +26,15 @@ const resource = (method, endpoint, payload) => {
 					return r.text()
 				}
 			} else {
-			// useful for debugging, but remove in production
-			console.dir(r)
-			console.error(`${method} ${endpoint} ${r.statusText}`)
-			const msg = r.body.error || r.statusText
-			throw new Error(msg)
-		}
-	})
+				// useful for debugging, but remove in production
+				r.json()
+				.then(()=> {
+					console.error(`${method} ${endpoint} ${r.statusText}`)
+					const msg = r.body.error || r.statusText
+					throw new Error(msg)
+				})
+			}
+		})
 }
 
 // resource only for img payload

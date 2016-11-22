@@ -86,7 +86,7 @@ export const RemoveFriend = (id) => {
 	}
 }
 
-// for add a new friend to user's friend list, and update avatar/headline of that user
+// for adding a new friend to user's friend list, and update avatar/headline of that user
 export const AddFriend = (id) => {
 	return (dispatch) => {
 		if (id) {

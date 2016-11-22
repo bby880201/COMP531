@@ -13,7 +13,6 @@ export const LocalLogin = (username, password) => {
 			resource('POST', 'login', { username, password })
 			.then((response) => {
 				initialVisit(username, dispatch)
-				getMinorInfo(username, dispatch)
 			}).catch((err) => {
 				dispatch({type: "LOGIN_ERR", data:'Username or password is wrong'})
 			})
@@ -36,7 +35,7 @@ const makeDict = (list, key) => {
 }
 
 // fetech all necessary data in parallel to save time
-const initialVisit = (username, dispatch) => {
+export const initialVisit = (username, dispatch) => {
 
 	resource('GET', 'following/'+username)
 	.then((res) => {
@@ -60,7 +59,9 @@ const initialVisit = (username, dispatch) => {
 			dispatch({type: 'LOGIN', data:{
 				headlines: tmp[0], avatars:tmp[1], 
 				articles: tmp[2], friends, username, keyWord:''}
-		})})
+			})
+			getMinorInfo(username, dispatch)
+		})
 	})
 	.catch((err)=>{
 		console.log(err.message)

@@ -2,22 +2,23 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { resource } from '../../serverAccess'
+import { initialVisit } from './loginAction'
 
 export const Register = (form) => {
 	return (dispatch) => {
-		const username = form.elements.namedItem('account').value
-		const email = form.elements.namedItem('email').value
-		const dob = form.elements.namedItem('dob').value
-		const zipcode = form.elements.namedItem('zip').value
-		const password = form.elements.namedItem('pwd').value
-		const payload = {username, email, dob, zipcode, password}
-
 		if (validate(form, dispatch)) {
+			const username = form.elements.namedItem('username').value
+			const email = form.elements.namedItem('email').value
+			const dob = form.elements.namedItem('dob').value
+			const zipcode = form.elements.namedItem('zip').value
+			const password = form.elements.namedItem('pwd').value
+			const payload = {username, email, dob, zipcode, password}
+
 			resource('POST', 'register', payload)
 			.then((response) => {
 				console.log(response)
-				dispatch({type: "SIGNUP_ERR", data:{server: 'Register success but can\'t log in'}})
 				form.reset()
+				initialVisit(username, dispatch)
 			}).catch((err) => {
 				dispatch({type: "SIGNUP_ERR", data:{server: err.message}})
 			})
@@ -32,20 +33,16 @@ const validate = (form, dispatch)=>{
 
 	const accountPattern = /^[a-zA-z][0-9a-zA-z]*$/g
 	const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/g
-	const phonePattern = /^\d{3}-\d{3}-\d{4}$/g
 	const zipPattern = /^\d{5}$/g
 	const dob = form.elements.namedItem('dob').value
 	const pwd = form.elements.namedItem('pwd').value
 	const pwdcnf = form.elements.namedItem('pwdcnf').value 
 
-	if (!accountPattern.test(form.elements.namedItem('account').value)) {
-		err['account'] = 'Account name can only be upper or lower case letters and numbers, but may not start with a number'
+	if (!accountPattern.test(form.elements.namedItem('username').value)) {
+		err['username'] = 'Account name can only be upper or lower case letters and numbers, but may not start with a number'
 		flag = false
 	} else if (!emailPattern.test(form.elements.namedItem('email').value)) {
 		err['email'] = 'Email address should follow pattern like "abc@xyz.com"'
-		flag = false
-	} else if (!phonePattern.test(form.elements.namedItem('phone').value)) {
-		err['phone'] = 'Phone number should be in ###-###-#### format'
 		flag = false
 	} else if (!dob || calculateAge(dob)<18) {
 		err['dob'] = 'Only users aged 18 or older on the date of registration are valid'

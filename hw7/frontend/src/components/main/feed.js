@@ -51,7 +51,7 @@ export const Feed = ({article, avatars, username, toggleComment, navto, toggleEd
 						<div className="pull-right">
 							{
 								article.editable?
-								<button type="button" className="btn btn-default btn-sm feedEditBtn"
+								<button type="button" className="btn btn-primary btn-sm feedEditBtn"
 								onClick={(e)=>{
 									e.preventDefault()
 									if (newArticle && newArticle.innerText!==article.text){
@@ -62,10 +62,10 @@ export const Feed = ({article, avatars, username, toggleComment, navto, toggleEd
 							}
 							{
 								article.author===username?
-								<button type="button" className="btn btn-default btn-sm feedEdit"
+								<button type="button" className="btn btn-primary btn-sm feedEdit"
 								onClick={()=>toggleEdit(article._id)}>Edit</button>:null
 							}
-							<button type="button" className="btn btn-default btn-sm" 
+							<button type="button" className="btn btn-primary btn-sm" 
 							onClick={()=>(toggleComment(article._id))}>Comment</button>
 						</div>
 					</div>

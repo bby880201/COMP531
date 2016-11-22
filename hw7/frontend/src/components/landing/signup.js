@@ -5,7 +5,7 @@ import SignupEntry from './signupEntry'
 import { Register } from './signupAction'
 import ErrorPanel from '../error'
 
-const entries = ['account', 'display', 'email', 'phone', 'dob', 'zip', 'pwd', 'pwdcnf']
+const entries = ['username', 'email', 'dob', 'zip', 'pwd', 'pwdcnf']
 
 export const Signup = ({err, onclick})=>{
 	const errMsg = err ? err['server'] : null
