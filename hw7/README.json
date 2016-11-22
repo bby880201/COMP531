@@ -1,0 +1,5 @@
+{ 
+     "netid": "bb26",
+  "frontend": "http://capricious-cellar.surge.sh/",
+   "backend": "https://ricebook-bb26.herokuapp.com/"
+}

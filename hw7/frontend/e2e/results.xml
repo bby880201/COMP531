@@ -1,0 +1,12 @@
+<testsuite name="Mocha Tests" tests="10" failures="0" errors="0" skipped="0" timestamp="Wed, 09 Nov 2016 07:29:06 GMT" time="34.854">
+<testcase classname="Test login and register function of landing page" name="should log in as the test user" time="0.549"/>
+<testcase classname="Test login and register function of landing page" name="should log out" time="1.596"/>
+<testcase classname="Test login and register function of landing page" name="should register new user" time="2.64"/>
+<testcase classname="Test feed articles and comment functions in main page" name="should create new article and validate article appears in feed" time="1.302"/>
+<testcase classname="Test feed articles and comment functions in main page" name="should edit an article and validate changed article text" time="1.514"/>
+<testcase classname="Test add/remove friend functions in main page" name="should add the follower user and verify following count increases by one" time="1.663"/>
+<testcase classname="Test add/remove friend functions in main page" name="should remove the follower user and verify following count decreases by one" time="1.566"/>
+<testcase classname="Test profile update functions in main page and profile page" name="should update headline and verify change" time="1.271"/>
+<testcase classname="Test profile update functions in main page and profile page" name="should update user email, zipcode, password and verify" time="3.6"/>
+<testcase classname="shutdown" name="now" time="0.11"/>
+</testsuite>
