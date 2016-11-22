@@ -29,7 +29,7 @@ export const UpdateToServer = (text, type, img)=>{
 					data.commentOn = false
 					dispatch({type: 'ADD_ARTICLE', data})
 				})
-				.catch(()=>{
+				.catch((err)=>{
 					dispatch({type:'MAIN_ERR', data:'Error occurs when post an article'})
 				})
 			}

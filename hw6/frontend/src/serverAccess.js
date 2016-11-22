@@ -6,7 +6,7 @@
 // handle all server endpoints access
 // default server url is the dummy server
 // const url = 'https://webdev-dummy.herokuapp.com'
-const url = 'https://nameless-springs-77197.herokuapp.com'
+const url = 'http://localhost:3000'
 
 const resource = (method, endpoint, payload) => {
 	const options =  {
@@ -28,8 +28,10 @@ const resource = (method, endpoint, payload) => {
 				}
 			} else {
 			// useful for debugging, but remove in production
+			console.dir(r)
 			console.error(`${method} ${endpoint} ${r.statusText}`)
-			throw new Error(r.statusText)
+			const msg = r.body.error || r.statusText
+			throw new Error(msg)
 		}
 	})
 }
@@ -52,8 +54,10 @@ const resourceForImg = (method, endpoint, payload) => {
 				}
 			} else {
 			// useful for debugging, but remove in production
+			console.dir(r)
 			console.error(`${method} ${endpoint} ${r.statusText}`)
-			throw new Error(r.statusText)
+			const msg = r.body.error || r.statusText
+			throw new Error(msg)
 		}
 	})
 }

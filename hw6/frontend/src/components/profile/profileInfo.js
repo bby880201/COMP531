@@ -59,7 +59,7 @@ Info.propTypes = {
 	headline: PropTypes.string.isRequired,
 	email: PropTypes.string.isRequired,
 	dob: PropTypes.string.isRequired,
-	zip: PropTypes.number.isRequired,
+	zip: PropTypes.string.isRequired,
 	update: PropTypes.func.isRequired
 }
 

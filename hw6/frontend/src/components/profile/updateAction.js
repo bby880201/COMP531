@@ -36,7 +36,7 @@ export const Update = (fields)=>{
 			.then((res)=>{
 				console.log(res)
 				dispatch({type: "PROFILE_ERR", 
-					data: {update: 'Password update success but server side will not change'}})
+					data: {update: 'Password update success'}})
 
 			})
 			.catch((err) => {
@@ -69,7 +69,7 @@ export const UpdateAvatar = (input) => {
 			})
 			.catch((err) => {
 				dispatch({type: 'PROFILE_ERR', 
-					data: {update: 'avatar update failed at server end'}})
+					data: {update: 'avatar update failed at server end: '+err.message}})
 			})
 		}
 	}

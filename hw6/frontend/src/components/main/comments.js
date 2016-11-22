@@ -42,10 +42,10 @@ export const Comments = ({artId, username, data, avatars, postCmt})=> {
 }
 
 Comments.proptypes = {
-	artId: PropTypes.number.isRequired,
+	artId: PropTypes.string.isRequired,
 	data: PropTypes.arrayOf(PropTypes.shape({
 		author: PropTypes.string.isRequired,
-		commentId: PropTypes.number.isRequired,
+		commentId: PropTypes.string.isRequired,
 		date: PropTypes.string.isRequired,
 		text: PropTypes.string.isRequired
 	})).isRequired,

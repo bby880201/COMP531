@@ -61,11 +61,11 @@ export const CommentItem = ({username, artId, data, avatar, navto, toggleEdit, p
 
 CommentItem.propTypes = {
 	username: PropTypes.string.isRequired,
-	artId: PropTypes.number.isRequired,
+	artId: PropTypes.string.isRequired,
 	avatar: PropTypes.string.isRequired,
 	data: PropTypes.shape({
 		author: PropTypes.string.isRequired,
-		commentId: PropTypes.number.isRequired,
+		commentId: PropTypes.string.isRequired,
 		date: PropTypes.string.isRequired,
 		text: PropTypes.string.isRequired,
 		editable: PropTypes.bool

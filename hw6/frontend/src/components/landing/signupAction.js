@@ -19,7 +19,7 @@ export const Register = (form) => {
 				dispatch({type: "SIGNUP_ERR", data:{server: 'Register success but can\'t log in'}})
 				form.reset()
 			}).catch((err) => {
-				dispatch({type: "SIGNUP_ERR", data:{server: 'Register failed at server end'}})
+				dispatch({type: "SIGNUP_ERR", data:{server: err.message}})
 			})
 		}
 	}

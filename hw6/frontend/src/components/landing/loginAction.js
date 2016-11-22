@@ -26,13 +26,13 @@ export const LocalLogin = (username, password) => {
 }
 
 const makeDict = (list, key) => {
-		const dict = {}
-		if (list) {
-			list.forEach((e)=>{
-				dict[e.username] = e[key]
-			})
-		}
-		return dict
+	const dict = {}
+	if (list) {
+		list.forEach((e)=>{
+			dict[e.username] = e[key]
+		})
+	}
+	return dict
 }
 
 // fetech all necessary data in parallel to save time
@@ -50,13 +50,8 @@ const initialVisit = (username, dispatch) => {
 			.then((res)=>(makeDict(res.avatars,'avatar'))),
 
 			resource('GET', 'articles/')
-			.then((res)=>{
-				if (res.articles){
-					return res.articles.map((e)=>({...e, commentOn: false}))
-				} else {
-					return []
-				}
-			})])
+			.then((res)=>(res.articles.map((e)=>({...e, commentOn: false}))))
+		])
 		.then((tmp)=>{
 			const friends = {n: res.following.length, 
 				list: res.following.map((name,id)=>{return {id,name}})}
@@ -68,6 +63,7 @@ const initialVisit = (username, dispatch) => {
 		})})
 	})
 	.catch((err)=>{
+		console.log(err.message)
 		dispatch({type: 'LOGIN_ERR', data: 'Failed to get your data, try login later'})
 	})	
 }
@@ -106,9 +102,17 @@ const getMinorInfo = (username, dispatch)=>{
 }
 
 const getCommentAvatars = (articles) =>{
-	const allComments = articles.map((e) => 
-		(e.comments.map((cmt)=>(cmt.author))))
+	if (!articles) {
+		return null
+	}
 
-	return resource('GET', 'avatars/'+allComments.join())
+	const authors = new Set()
+	articles.forEach((e) => {
+		e.comments.forEach((cmt) => {
+			authors.add(cmt.author)
+		})
+	})
+
+	return resource('GET', 'avatars/'+[...authors].join())
 	.then((res)=>(makeDict(res.avatars,'avatar')))
 }

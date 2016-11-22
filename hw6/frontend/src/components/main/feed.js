@@ -80,7 +80,7 @@ Feed.propTypes = {
 	username: PropTypes.string.isRequired,
 	toggleComment: PropTypes.func.isRequired,
 	article: PropTypes.shape({
-		_id: PropTypes.number.isRequired,
+		_id: PropTypes.string.isRequired,
 		author: PropTypes.string.isRequired,
 		date: PropTypes.string.isRequired,
 		text: PropTypes.string.isRequired,
@@ -88,7 +88,7 @@ Feed.propTypes = {
 		commentOn: PropTypes.bool.isRequired,
 		comments: PropTypes.arrayOf(PropTypes.shape({
 			author: PropTypes.string.isRequired,
-			commentId: PropTypes.number.isRequired,
+			commentId: PropTypes.string.isRequired,
 			date: PropTypes.string.isRequired,
 			text: PropTypes.string.isRequired
 		})).isRequired,

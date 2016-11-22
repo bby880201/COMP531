@@ -3,6 +3,8 @@ import { combineReducers } from 'redux'
 // handle err actions
 export const error = (state = {}, action)=>{
 	switch(action.type) {
+		case 'LOGOUT':
+			return {}
 		case 'LOGIN_ERR':
 			return {loginErr: action.data}
 		case 'LOGOUT_ERR':
@@ -123,4 +125,3 @@ export const user = (state = {location: 'LANDING'}, action)=>{
 const Reducer = combineReducers({error, articles, headlines, avatars, friends, user})
 
 export default Reducer
-

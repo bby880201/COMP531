@@ -15,10 +15,8 @@ export const ToggleComment = (_id) => {
 export const PutArticle = (artId, text, commentId=null) => {
 	return (dispatch) => {
 		const payload = commentId?{text, commentId}:{text}
-		console.log(artId, text, payload)
 		resource('PUT', 'articles/'+artId, payload)
 		.then((res)=>{
-			console.log(res)
 			const data = res.articles[0]
 			data.commentOn = commentId?true:false
 			dispatch({type: 'ADD_ARTICLE', data})
