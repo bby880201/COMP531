@@ -1,0 +1,22 @@
+• What did you hope to learn but did not?
+Get hand-on experience for using AWS or Azure
+
+• What did you really enjoy learning about?
+The cutting edge and fancy technologies like React, OAuth
+
+• What worked well in the course? and how?
+Divide and conquer strategy for the project. At first class when I knew the goal would be building a facebook-like website, 
+I really didn't think I can make it. Though the task was tough, by dividing and conquering during the semester, I make it!
+
+• What did not work well in the course and how might it be improved?
+Sometimes the inclass excerise was a little bit difficult, and sometime the deadline conflicted with the homework, making it harder to finish.
+So if the deadline of inclass excerise could move to next night, it could make life easier.
+
+• What could I have done to help you more, presentation of material, design of in classexercises, goals of projects – and be specific please!
+It would be great if we can do a peer evaluation on the final deliverable webapp, and maybe give some credits based on the rank of everyone's 
+page. By doing that, we are encouraged to beautify pages and optimize user experience. Also if someone adopt new techniques and implement 
+fancy features, he/she deserves some bonus credits. For example, this site, http://ethereal-clam.surge.sh/, (I saw this page when I did backend 
+peer review), is using Materialize and feels fantastic, should get some rewards.
+
+• Anything else you like to say?
+Thank you Scott! You are a wonderful teacher!
