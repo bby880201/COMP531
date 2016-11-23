@@ -1,3 +1,4 @@
+// all endpoints for manipulating user profiles 
 const Profile = require('./model').Profile
 const User = require('./model').User
 const uploadImage = require('./uploadCloudinary').uploadImage

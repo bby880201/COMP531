@@ -28,7 +28,7 @@ const resource = (method, endpoint, payload) => {
 			} else {
 				// useful for debugging, but remove in production
 				r.json()
-				.then(()=> {
+				.then((r)=> {
 					console.error(`${method} ${endpoint} ${r.statusText}`)
 					const msg = r.body.error || r.statusText
 					throw new Error(msg)
@@ -55,12 +55,14 @@ const resourceForImg = (method, endpoint, payload) => {
 				}
 			} else {
 			// useful for debugging, but remove in production
-			console.dir(r)
-			console.error(`${method} ${endpoint} ${r.statusText}`)
-			const msg = r.body.error || r.statusText
-			throw new Error(msg)
-		}
-	})
+				r.json()
+				.then((r)=> {
+					console.error(`${method} ${endpoint} ${r.statusText}`)
+					const msg = r.body.error || r.statusText
+					throw new Error(msg)
+				})
+			}
+		})
 }
 
 export {url, resource, resourceForImg}

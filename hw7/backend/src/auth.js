@@ -1,3 +1,4 @@
+// all endpoints are for login or register purposes
 const REDIS_URL = process.env.REDIS_URL || 'redis://h:pejanpr88gbdia9ajs78ogjsvpo@ec2-54-221-228-237.compute-1.amazonaws.com:11539'
 const redis = require('redis').createClient(REDIS_URL)
 const md5 = require('md5')
@@ -81,6 +82,7 @@ const register = (req, res)=>{
 	})
 }
 
+// generate user credentials for new user on server side
 const makeCred = (username, password) => {
 	const salt = md5(Math.random().toString(36).substring(2) + username)
 	const hash = md5(pepper + password + salt)
@@ -163,4 +165,5 @@ module.exports = (app) => {
 	app.put('/password', password)
 }
 
+// export for global use
 module.exports.isLoggedIn = isLoggedIn

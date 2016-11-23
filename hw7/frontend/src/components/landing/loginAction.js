@@ -53,7 +53,7 @@ export const initialVisit = (username, dispatch) => {
 		])
 		.then((tmp)=>{
 			const friends = {n: res.following.length, 
-				list: res.following.map((name,id)=>{return {id,name}})}
+				list: res.following.map((name,id)=>({id,name}))}
 			getCommentAvatars(tmp[2])
 			.then((res)=>(dispatch({type: 'UPDATE_AVATAR', data:{avatars:res}})))
 			dispatch({type: 'LOGIN', data:{

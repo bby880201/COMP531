@@ -80,8 +80,8 @@ export const RemoveFriend = (id) => {
 			data.friends = res.following.map((name,id)=>({id,name}))
 			dispatch({type: 'UPDATE_FRIEND', data})
 		})
-		.catch(() => {
-			dispatch({type:'FRIEND_ERR', data:'Error occurs when delete your friend ' + id})
+		.catch((err) => {
+			dispatch({type:'FRIEND_ERR', data:err.message})
 		})
 	}
 }

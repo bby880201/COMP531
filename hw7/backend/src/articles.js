@@ -1,3 +1,4 @@
+// all endpoints are for manipulating articles
 const Article = require('./model').Article
 const Profile = require('./model').Profile
 const ObjectId = require('mongoose').Types.ObjectId
