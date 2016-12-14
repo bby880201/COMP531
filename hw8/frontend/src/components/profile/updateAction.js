@@ -78,7 +78,7 @@ export const Link = (username, password) => {
 		if (username && password) {
 			resource('POST', 'link', {username, password})
 			.then((res)=> {
-				dispatch({type: "PROFILE_ERR", data: {link: 'Link account success'}})
+				dispatch({type: "PROFILE_ERR", data: {link: 'Link account success, please re-login!'}})
 			})
 			.catch((err)=> {
 				dispatch({type: "PROFILE_ERR", data: {update: 'Link failed at server end: '+err.message}})
@@ -91,7 +91,7 @@ export const Unlink = () => {
 	return (dispatch) => {
 		resource('GET', 'unlink')
 		.then((res)=> {
-			dispatch({type: "PROFILE_ERR", data: {link: 'Unlink account success'}})
+			dispatch({type: "PROFILE_ERR", data: {link: 'Unlink account success, please re-login!'}})
 		})
 		.catch((err)=> {
 			dispatch({type: "PROFILE_ERR", data: {update: 'Unlink account failed at server end: '+err.message}})

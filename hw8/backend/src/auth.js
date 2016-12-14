@@ -2,7 +2,7 @@
 const REDIS_URL = process.env.REDIS_URL || 'redis://h:pejanpr88gbdia9ajs78ogjsvpo@ec2-54-221-228-237.compute-1.amazonaws.com:11539'
 const clientID = process.env.CLIENT_ID || '708618609292408'
 const clientSecret = process.env.CLIENT_SECRET || 'acc9f265afa405039e9d94ef9327c5cb'
-const callbackURL = process.env.CALLBACK_URL || 'https://ricebook-bb26-final.herokuapp.com//auth/callback'
+const callbackURL = process.env.CALLBACK_URL || 'https://ricebook-bb26-final.herokuapp.com/auth/callback'
 const pepperStr =  process.env.PEPPER || 'arandompepper'
 const pepperStrForSession = process.env.SESSION_PEPPER || 'arandompepperforsession'
 const sessionSecret = process.env.SESSION_SECRET || 'HelloWorld'
@@ -201,6 +201,7 @@ passport.use(new FacebookStrategy(config,
 
 const authLogin = (req, res)=> {
 	const username = req.user.displayName + '@' + req.user.provider
+	console.log(username)
 	User.findOne({ $or: [{username},
 		{'auth.id': req.user.id, 'auth.provider': req.user.provider}]}, (err, user) => {
 		if (err) {
@@ -212,8 +213,9 @@ const authLogin = (req, res)=> {
 					console.error('Mongoose findOne error: Profile findOne failed since ' + err)
 					res.status(500).send({error:err})
 				} else if (!profile) {
+					const tmp = req.user.displayName + '@' + req.user.provider
 					const newUser = {
-						username, 
+						username: tmp,
 						email:req.user.emails[0].value,
 						dob: -1, 
 						zipcode: '00000', 
@@ -225,7 +227,7 @@ const authLogin = (req, res)=> {
 						name: req.user.displayName + '@' + req.user.provider
 					}]
 					req.body = newUser
-					req.session.passport.user.displayName = username
+					req.session.passport.user.displayName = tmp
 					const username = req.body.username
 	
 					User.findOne({ username }, (err, user)=>{	
@@ -340,6 +342,7 @@ const link = (req, res) => {
 									{$push: {following:{$each:profile.following}}}, {new: true},
 									(err, newProfile)=> {
 										console.log('Mongoose update success: Profile update for ' + username)
+										req.session.passport.user.displayName = username
 										res.send('success')
 									})
 							}
