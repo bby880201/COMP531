@@ -1,0 +1,74 @@
+{
+	"testUsers": [
+		{
+			"username": "bb26_1",
+			"password": "123456",
+			"email": "bb26_1@rice.edu",
+			"zipcode": "77005",
+			"dob": "10/11/1955"
+		},
+		{
+			"username": "bb26_2",
+			"password": "123456",
+			"email": "bb26_2@rice.edu",
+			"zipcode": "77006",
+			"dob": "10/11/1956"
+		},
+		{
+			"username": "bb26_3",
+			"password": "123456",
+			"email": "bb26_3@rice.edu",
+			"zipcode": "77007",
+			"dob": "10/11/1958"
+		},
+		{
+			"username": "bb26_4",
+			"password": "123456",
+			"email": "bb26_4@rice.edu",
+			"zipcode": "77009",
+			"dob": "10/11/1958"
+		},
+		{
+			"username": "bb26_5",
+			"password": "123456",
+			"email": "bb26_5@rice.edu",
+			"zipcode": "77012",
+			"dob": "10/11/1970"
+		},
+		{
+			"username": "bb26_6",
+			"password": "123456",
+			"email": "bb26_6@rice.edu",
+			"zipcode": "77081",
+			"dob": "10/11/1975"
+		},
+		{
+			"username": "bb26_7",
+			"password": "123456",
+			"email": "bb26_7@rice.edu",
+			"zipcode": "77089",
+			"dob": "10/11/1995"
+		},
+		{
+			"username": "bb26",
+			"password": "key-class-onto",
+			"email": "bb26@rice.edu",
+			"zipcode": "77010",
+			"dob": "11/02/1898"
+		},
+		{
+			"username": "bb26test",
+			"password": "center-each-train",
+			"email": "bb26test@rice.edu",
+			"zipcode": "77010",
+			"dob": "11/02/1898"
+		},
+		{
+			"username": "sep1test",
+			"password": "native-web-tester",
+			"email": "sep1test@rice.edu",
+			"zipcode": "77005",
+			"dob": "05/04/2001"
+		}
+	]
+}
