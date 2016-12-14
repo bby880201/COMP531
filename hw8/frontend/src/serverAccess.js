@@ -5,6 +5,7 @@
 
 // handle all server endpoints access
 // default server url is the dummy server
+// const url = 'https://ricebook-bb26-final.herokuapp.com'
 const url = 'https://ricebook-bb26-final.herokuapp.com'
 
 const resource = (method, endpoint, payload) => {

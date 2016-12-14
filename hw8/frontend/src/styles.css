@@ -167,3 +167,16 @@ button.feedEdit {
 	margin-left: 5px;
 	margin-right: 5px;
 }
+button.facebook {
+	background-color: #3b5998;
+	color: #fff;
+	border-color: rgba(0,0,0,0.2);
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+}
+a.unlink {
+	vertical-align: -webkit-baseline-middle;
+	text-decoration: none;
+}

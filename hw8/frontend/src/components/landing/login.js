@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import ErrorPanel from '../error'
-import { LocalLogin } from './loginAction'
+import { LocalLogin, FacebookOAuth } from './loginAction'
 
 // login view that could do login action
-export const Login = ({loginErr, onclick})=>{
+export const Login = ({loginErr, onclick, fblogin})=>{
 	let usrname, pwd
 	return (
 		<div className="col-sm-6">
@@ -27,7 +27,7 @@ export const Login = ({loginErr, onclick})=>{
 							ref={ (node) => pwd = node } />
 						</div>
 					</div>
-					<div className="col-sm-3 center-block logIn">
+					<div className="col-sm-4 center-block logIn">
 						<div className="form-group">
 							<button className="btn btn-primary btn-sm logIn" id="login" 
 							onClick={(e)=>{
@@ -35,6 +35,13 @@ export const Login = ({loginErr, onclick})=>{
 								onclick(usrname.value, pwd.value)
 							}}>Log In</button>
 						</div>
+					</div>
+					<div className="col-sm-6 center-block">
+						<button className="btn btn-block facebook"
+						onClick={(e)=>{
+								e.preventDefault()
+								fblogin()
+							}}>Sign in with Facebook</button>
 					</div>
 				</div>
 			</div>
@@ -44,6 +51,7 @@ export const Login = ({loginErr, onclick})=>{
 
 Login.propTypes = {
 	onclick: PropTypes.func.isRequired,
+	fblogin: PropTypes.func.isRequired,
 	loginErr: PropTypes.string
 }
 
@@ -56,6 +64,9 @@ export default connect((state)=>{
 		return {
 			onclick: (usrname, pwd)=>{
 				LocalLogin(usrname, pwd)(dispatch)
+			}, 
+			fblogin: ()=> {
+				FacebookOAuth()(dispatch)
 			}
 		}
 	}

@@ -21,7 +21,6 @@ export const Update = (fields)=>{
 		if (zipcode && checkZipcode(zipcode, dispatch)) {
 			resource('PUT', 'zipcode', {zipcode})
 			.then((res)=>{
-				console.log(res)
 				dispatch({type: "UPDATE_INFO", data: {zipcode: res.zipcode}})
 			})
 			.catch((err) => {
@@ -34,7 +33,6 @@ export const Update = (fields)=>{
 		if (password && checkPwd(password, pwdcnf,dispatch)) {
 			resource('PUT', 'password', {password})
 			.then((res)=>{
-				console.log(res)
 				dispatch({type: "PROFILE_ERR", 
 					data: {update: 'Password update success'}})
 
@@ -72,6 +70,32 @@ export const UpdateAvatar = (input) => {
 					data: {update: 'avatar update failed at server end: '+err.message}})
 			})
 		}
+	}
+}
+
+export const Link = (username, password) => {
+	return (dispatch) => {
+		if (username && password) {
+			resource('POST', 'link', {username, password})
+			.then((res)=> {
+				dispatch({type: "PROFILE_ERR", data: {link: 'Link account success'}})
+			})
+			.catch((err)=> {
+				dispatch({type: "PROFILE_ERR", data: {update: 'Link failed at server end: '+err.message}})
+			})
+		}
+	}
+}
+
+export const Unlink = () => {
+	return (dispatch) => {
+		resource('GET', 'unlink')
+		.then((res)=> {
+			dispatch({type: "PROFILE_ERR", data: {link: 'Unlink account success'}})
+		})
+		.catch((err)=> {
+			dispatch({type: "PROFILE_ERR", data: {update: 'Unlink account failed at server end: '+err.message}})
+		})	
 	}
 }
 

@@ -11,9 +11,8 @@ export const Logout = () => {
 			dispatch({type:'LOGOUT'})
 		})
 		.catch((err)=>{
-			console.error(err)
 			dispatch({type:'LOGOUT'})
-			dispatch({type:'LOGOUT_ERR', data:err})
+			dispatch({type:'LOGOUT_ERR', data:err.error})
 		})
 	}
 }

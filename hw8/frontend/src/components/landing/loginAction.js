@@ -4,7 +4,7 @@ require("babel-polyfill")
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import { resource } from '../../serverAccess'
+import { resource,url } from '../../serverAccess'
 
 // login from local browser, and get all necessary before dispatch next action
 export const LocalLogin = (username, password) => {
@@ -21,6 +21,12 @@ export const LocalLogin = (username, password) => {
 		return (dispatch) => {
 			dispatch({type: "LOGIN_ERR", data:'Username or password is missing'})
 		}
+	}
+}
+
+export const FacebookOAuth = () => {
+	return (dispatch) => {
+		window.location = url+'/auth/facebook'
 	}
 }
 
