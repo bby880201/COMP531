@@ -2,7 +2,7 @@
 const REDIS_URL = process.env.REDIS_URL || 'redis://h:pejanpr88gbdia9ajs78ogjsvpo@ec2-54-221-228-237.compute-1.amazonaws.com:11539'
 const clientID = process.env.CLIENT_ID || '708618609292408'
 const clientSecret = process.env.CLIENT_SECRET || 'acc9f265afa405039e9d94ef9327c5cb'
-const callbackURL = process.env.CALLBACK_URL || 'http://localhost:3000/auth/callback'
+const callbackURL = process.env.CALLBACK_URL || 'https://ricebook-bb26-final.herokuapp.com//auth/callback'
 const pepperStr =  process.env.PEPPER || 'arandompepper'
 const pepperStrForSession = process.env.SESSION_PEPPER || 'arandompepperforsession'
 const sessionSecret = process.env.SESSION_SECRET || 'HelloWorld'
